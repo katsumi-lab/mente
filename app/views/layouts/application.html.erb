@@ -7,10 +7,19 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
   </head>
 
   <body>
-  
-    <%= yield %>
+    <div class="app-title navbar navbar-expand-md navbar-light bg-light">
+    <p class ="navbar-brand font-weight-bold">お手入れ手帳</p>
+    </div>
+    
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <div class="app-title navbar navbar-expand-md navbar-light bg-light">
+    <p class ="navbar-brand font-weight-bold">お手入れ手帳</p>
   </body>
 </html>
