@@ -14,9 +14,9 @@ ActiveRecord::Schema.define(version: 2020_10_29_053927) do
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.integer "floor"
     t.string "room"
     t.string "item"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
