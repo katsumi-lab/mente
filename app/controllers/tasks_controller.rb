@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
-before_action :move_to_index, except: [:index, :show]
-
+  
   def index
     @tasks = Task.all
   end
@@ -36,13 +35,5 @@ before_action :move_to_index, except: [:index, :show]
 
   def task_params
     params.require(:task).permit(:name, :room, :item,:description)
-  end
-
-  private
-
-  def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
   end
 end
