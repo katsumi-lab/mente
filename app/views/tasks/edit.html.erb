@@ -1,2 +1,30 @@
-<h1>Tasks#edit</h1>
-<p>Find me in app/views/tasks/edit.html.erb</p>
+<h1>編集画面</h1>
+
+<div class="nav justify-content-end">
+  <%= link_to '一覧に戻る', tasks_path, class:'nav-link' %>
+</div>
+
+<%= form_with model:@task, local: true do |f| %>
+  
+  <div class="form-group">
+    <%= f.label :お手入れネーム %>
+    <%= f.text_field :name, class: "form-control", id: 'task_name' %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :部屋, for:"exampleFormControlSelect1"%>
+    <%= f.select :room,  ['洋室1', '洋室2', '洋室3', '和室1', 'その他'],{}, {class:"form-control", id:"exampleFormControlSelect1"}%>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :項目, for:"exampleFormControlSelect2"%>
+    <%= f.select :item,  ['サッシ', 'フローリング', '壁紙', '換気フィルター', 'その他'], {},{class:"form-control", id:"exampleFormControlSelect2"}%>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :説明,for:"exampleFormControlTextarea1"%>
+    <%= f.text_area :description, class:"form-control", id:"exampleFormControlTextarea1", rows:"3"%>
+  </div>
+  
+  <%= f.submit nil, class: 'btn btn-primary'%>
+  <% end %>
