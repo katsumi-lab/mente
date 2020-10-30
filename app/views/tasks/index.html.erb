@@ -37,7 +37,7 @@
     <!-- my＝marginのy軸 -->
     <hr class="my-4">
     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <a class="btn btn-primary btn-md" href="/tasks/new" role="button">詳細ページへ</a>
+    <a class="btn btn-primary btn-md" href="/tasks/new" role="button">新規登録</a>
   </div> 
 
 <div class="mb-3">
@@ -51,7 +51,7 @@
     <tbody>
       <% @tasks.each do |task| %>
         <tr>
-          <td><%= task.name %></td>
+          <td><%= link_to task.name, task_path(task) %></td>
           <td><%= task.created_at %></td>
         </tr>
       <% end %>

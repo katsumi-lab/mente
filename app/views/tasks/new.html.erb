@@ -13,12 +13,12 @@
   
   <div class="form-group">
     <%= f.label :部屋, for:"exampleFormControlSelect1"%>
-    <%= f.select :room, { '洋室1':1, '洋室2':2, '洋室3':3, '和室1':4, 'その他':5},{ include_blank: '選択してください'}, {class:"form-control", id:"exampleFormControlSelect1"}%>
+    <%= f.select :room,  ['洋室1', '洋室2', '洋室3', '和室1', 'その他'],{ include_blank: '選択してください'}, {class:"form-control", id:"exampleFormControlSelect1"}%>
   </div>
   
   <div class="form-group">
     <%= f.label :項目, for:"exampleFormControlSelect2"%>
-    <%= f.select :item, { 'サッシ':1, 'フローリング':2, '壁紙':3, '換気フィルター':4, 'その他':5},{ include_blank: '選択してください'}, {class:"form-control", id:"exampleFormControlSelect2"}%>
+    <%= f.select :item,  ['サッシ', 'フローリング', '壁紙', '換気フィルター', 'その他'],{ include_blank: '選択してください'}, {class:"form-control", id:"exampleFormControlSelect2"}%>
   </div>
   
   <div class="form-group">

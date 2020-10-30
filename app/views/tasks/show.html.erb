@@ -1,3 +1,38 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
-<a href="/tasks" class="btn btn-secondary btn-lg">TOPへ戻る</a>
+<h1>個別詳細</h1>
+
+<div class="nav justify-content-end">
+  <%= link_to '一覧に戻る', tasks_path, class:'nav-link' %>
+</div>
+
+<table class="table table-hover">
+  <tbody>
+    <tr>
+      <th><%= Task.human_attribute_name(:id) %></th>
+      <td><%= @task.id %></td>
+    </tr>
+    <tr>
+      <th> <%= Task.human_attribute_name(:name) %></th>
+      <td><%= @task.name %></td>
+    </tr>
+    <tr>
+      <th><%= Task.human_attribute_name(:room) %></th>
+      <td><%= @task.room %></td>
+    </tr>
+    <tr>
+      <th><%= Task.human_attribute_name(:item) %></th>
+      <td><%= @task.item %></td>
+    </tr>
+    <tr>
+      <th><%= Task.human_attribute_name(:description) %></th>
+      <td><%= simple_format(h(@task.description),{}, sanitize: false, wrapper_tag: "div")%></td>
+    </tr>
+    <tr>
+      <th><%= Task.human_attribute_name(:created_at) %></th>
+      <td><%= @task.created_at%></td>
+    </tr>
+    <tr>
+      <th><%= Task.human_attribute_name(:updated_at) %></th>
+      <td><%= @task.updated_at%></td>
+    </tr>
+  </tbody>
+</table>
