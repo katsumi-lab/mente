@@ -1,32 +1,37 @@
-<h2>ログイン</h2>
+<div class="container">
+  <div class="jumbotron">
+    <h2 class="d-flex justify-content-center">ユーザーログイン</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-group">
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
-        <label for="validationCustom02">名字</label>
-          <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="validationCustom01">名前</label>
-          <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
+    <%= form_with model: @user, url: user_session_path, id: 'new_user', local: true do |f| %>
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="lastName">名字</label>
+            <input type="text" class="form-control" id="lastName" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="firstName">名前</label>
+            <input type="text" class="form-control" id="firstName" required>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="form-group">
+      <label class="form-text">パスワード</label>
+      <%= f.password_field :password, class:"form-control", id:"password" %>
     </div>
-  <% end %>
 
-  <button type="submit" class="btn btn-primary">ログイン</button>
-<% end %>
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
 
-<%= render "devise/shared/links" %>
+    <button type="submit" class="btn btn-primary mb-5">ログイン</button>
+    <% end %>
+
+  <%= render "devise/shared/links" %>
+
+  </div>
+</div>
