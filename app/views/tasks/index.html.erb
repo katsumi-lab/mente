@@ -33,9 +33,9 @@
 
   <div class="jumbotron">
     <!-- display-5は見出しのサイズ -->
-    <h1 class="display-5">こんにちは！ログインユーザーさん</h1>
+    <h5><%= "こんにちは！#{current_user.last_name}さん"%></h5>
     <!-- leadは文章の文字サイズを小さくする -->
-    <p class="lead">（ユーザー名）様邸　お住まいになられて◯年△ヶ月経ちました。快適にお過ごしでしょうか？長く快適に暮らす為には日頃のお手入れが非常に重要となります。忘れそうなお掃除はお手入れ登録しましょう！</p>
+    <p class="lead"><%= "#{current_user.last_name} #{current_user.first_name} #{current_user.last_name_kana} #{current_user.first_name_kana}様邸 お住まいになられて◯年△ヶ月経ちました。快適にお過ごしでしょうか？長く快適に暮らす為には日頃のお手入れが非常に重要となります。忘れそうなお掃除はお手入れ登録しましょう！"%></p>
     <!-- my＝marginのy軸 -->
     <hr class="my-4">
     <p>ご不明点はchatobotをご用意しております。</p>
