@@ -1,0 +1,38 @@
+<%# "以下のタスクを作成しました"
+
+<ul>
+  <li>
+    名称： 
+    <%= @task.name %>
+  <%# </li>
+  <li>
+    部屋：
+    <%= @task.room %> 
+  <%# </li>
+  <li>
+    項目： 
+    <%= @task.item %>
+  </li> 
+  <%# <li>
+    説明：
+    <%= simple_format(@task.description) %>
+  </li>
+</ul> 
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= "以下のタスクを作成しました"%></h1>
+    <ul>
+      <li>名称： <%= @task.name %></li>
+      <li>部屋： <%= @task.room %></li>
+      <li>項目： <%= @task.item %></li>
+      <li>説明： <%= simple_format(@task.description) %></li>
+    </ul>
+  </body>
+</html>
+
+

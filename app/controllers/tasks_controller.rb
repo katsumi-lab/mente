@@ -13,9 +13,15 @@ class TasksController < ApplicationController
     @task = Task.new
   end
   def create
-    task = Task.new(task_params)
-    task.save
-    redirect_to tasks_path, notice: "「#{task.name}」を登録しました。"
+    @task = Task.new(task_params)
+
+    # タスクが登録されたらEmailが送信される条件分岐。
+    if @task.save
+      TaskMailer.creation_email(@task).deliver_now
+      redirect_to @task, notice: "「#{@task.name}」を登録しました。"
+    else
+      render :new
+    end
   end
 
   def edit
@@ -35,11 +41,9 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :room, :item,:description)
+    params.require(:task).permit(:name, :room, :item,:description).merge(user_id: current_user.id)
   end
-
-  private
-
+  
   def move_to_index
     unless user_signed_in?
       redirect_to action: :index
