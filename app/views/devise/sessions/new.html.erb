@@ -7,11 +7,13 @@
       <div class="form-row">
         <div class="col-md-4 mb-3">
           <label for="lastName">名字</label>
-            <input type="text" class="form-control" id="lastName" required>
+          
+            <%= f.text_field :last_name, class:"form-control", id:"last-name", placeholder:"例) 山田" %>
         </div>
         <div class="col-md-4 mb-3">
           <label for="firstName">名前</label>
-            <input type="text" class="form-control" id="firstName" required>
+          
+            <%= f.text_field :first_name, class:"form-control", id:"first-name", placeholder:"例) 陸太郎" %>
         </div>
       </div>
     </div>
@@ -20,17 +22,9 @@
       <label class="form-text">パスワード</label>
       <%= f.password_field :password, class:"form-control", id:"password" %>
     </div>
-    
-
-    <% if devise_mapping.rememberable? %>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end %>
 
     <button type="submit" class="btn btn-primary mb-5">ログイン</button>
-    <a href="/users/sign_up" class="btn btn-primary mb-5">ユーザー登録画面へ</a>
+    <%# <button type="submit" class="btn btn-primary mb-5">ユーザー登録画面へ</button> %>
     <% end %>
 
   <%= render "devise/shared/links" %>

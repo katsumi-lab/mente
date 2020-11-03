@@ -31,6 +31,8 @@ ja:
     task: 
     id: ID
     name: 名称
+    room: 部屋
+    item: 項目
     description: 詳しい説明
     created_at: 登録日時
     updated_at: 更新日時
