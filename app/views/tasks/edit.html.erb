@@ -3,14 +3,33 @@
 <div class="nav justify-content-end">
   <%= link_to '一覧に戻る', tasks_path, class:'nav-link' %>
 </div>
-<%= form_with model:@task, local: true do |f| %>
+<%= form_with model:@task, url: task_path, local: true do |f| %>
 
-<%= render partial: 'form', locals: { task: @task } %>
-
+<div class="form-group">
+    <%= f.label :お手入れネーム %>
+    <%= f.text_field :name, class: "form-control", id: 'task_name', placeholder: '例）大掃除' %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :部屋, for:"exampleFormControlSelect1"%>
+    <%= f.select :room,  ['洋室1', '洋室2', '洋室3', '和室1', 'その他'],{ include_blank: '選択してください'}, {class:"form-control", id:"exampleFormControlSelect1"}%>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :項目, for:"exampleFormControlSelect2"%>
+    <%= f.select :item,  ['サッシ', 'フローリング', '壁紙', '換気フィルター', 'その他'],{ include_blank: '選択してください'}, {class:"form-control", id:"exampleFormControlSelect2"}%>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :説明,for:"exampleFormControlTextarea1"%>
+    <%= f.text_area :description, class:"form-control", id:"exampleFormControlTextarea1", rows:"3", placeholder: '例）半年に一度の大掃除なので念入りに！'%>
+  </div>
 
 <div class="form-group">
   <%= f.label :ステータス %>
   <%= f.select :completed,[['未完了',0],['完了',1]],{}, class: 'form-control', id: 'task_completed'%>
 </div>
+
 <%= f.submit nil, class: 'btn btn-primary'%>
+
 <% end %>
