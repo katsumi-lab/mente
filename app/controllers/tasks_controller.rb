@@ -7,6 +7,11 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    if @task == "all" then
+      @tasks = Task.all
+    else
+      @tasks = Task.where(completed: 0)
+    end
   end
 
   def new
@@ -41,7 +46,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :room, :item,:description).merge(user_id: current_user.id)
+    params.require(:task).permit(:name, :room, :item,:description, :completed).merge(user_id: current_user.id)
   end
   
   def move_to_index

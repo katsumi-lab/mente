@@ -1,4 +1,5 @@
 <%= form_with model:@task, local: true do |f| %>
+
   
   <div class="form-group">
     <%= f.label :お手入れネーム %>
@@ -20,5 +21,4 @@
     <%= f.text_area :description, class:"form-control", id:"exampleFormControlTextarea1", rows:"3", placeholder: '例）半年に一度の大掃除なので念入りに！'%>
   </div>
   
-  <%= f.submit nil, class: 'btn btn-primary'%>
-<% end %>
+  <%end%>
