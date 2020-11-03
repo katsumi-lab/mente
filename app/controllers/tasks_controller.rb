@@ -2,16 +2,17 @@ class TasksController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @tasks = Task.all
+    @tasks = Task.page(params[:page]).per(3)
   end
 
   def show
     @task = Task.find(params[:id])
     if @task == "all" then
-      @tasks = Task.all
+      @task = Task.all
     else
-      @tasks = Task.where(completed: 0)
+      @task = Task.where(completed: 0)
     end
+
   end
 
   def new
@@ -19,7 +20,6 @@ class TasksController < ApplicationController
   end
   def create
     @task = Task.new(task_params)
-
     # タスクが登録されたらEmailが送信される条件分岐。
     if @task.save
       TaskMailer.creation_email(@task).deliver_now
