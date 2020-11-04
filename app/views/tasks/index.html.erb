@@ -53,11 +53,15 @@
     <%= link_to '未完了', tasks_path, class: 'btn btn-primary btn-sm ml-1'%>
   <%end%>
   
-  <p>検索</p>
-    <%= form_tag(search_path,:method => 'get') do %>
-      <%= text_field_tag :search %>
-      <%= submit_tag 'Search', :name => nil %>
-    <% end %>
+  <div class="row justify-content-end">
+    <%= search_form_for @q, class: 'mb-5 ' do |f| %>
+    <div class="form-inline">
+      <%= f.label :name_cont, 'タイトル', class: 'my-1 mr-2'%>
+      <%= f.search_field :name_cont, class: 'my-1 mr-sm-2'%>
+      <%= f.submit '検索', class: 'btn btn-primary my-1'%>
+    </div>
+    <%end%>
+  </div>
 
   <div class="row d-flex justify-content-around">
     <% @tasks.each do |task| %>

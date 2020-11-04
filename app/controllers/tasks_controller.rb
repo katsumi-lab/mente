@@ -3,6 +3,13 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.page(params[:page]).per(3)
+    @q = Task.ransack(params[:q])
+    @results = @q.result(distinct: true)
+  end
+
+  def search
+    @q = Task.search(search_params)
+    @results = @q.result(distinct: true)
   end
 
   def show
@@ -43,7 +50,11 @@ class TasksController < ApplicationController
     task.destroy
     redirect_to tasks_path, notice: "「#{task.name}」を削除しました。"
   end
+
   private
+  def search_params
+    params.require(:q).permit!
+  end
 
   def task_params
     params.require(:task).permit(:name, :room, :item,:description, :completed).merge(user_id: current_user.id)
