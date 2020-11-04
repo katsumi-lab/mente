@@ -9,16 +9,16 @@ class UsersController < ApplicationController
   #     render :new
   #   end
   # end
-  def create
-    @user = User.create(user_params)
-  end
+  # def create
+  #   @user = User.create(user_params)
+  # end
   
   def edit
   end
 
-  private
-  def user_params
-    params.require(:user).permit(last_name: last_name, first_name:first_name)
-  end
+  # private
+  # def user_params
+  #   params.require(:user).permit(last_name: last_name, first_name:first_name)
+  # end
   
 end

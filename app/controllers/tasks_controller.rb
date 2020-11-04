@@ -8,11 +8,10 @@ class TasksController < ApplicationController
   def show
     @task = Task.find(params[:id])
     if @task == "all" then
-      @task = Task.all
+      @tasks = Task.all
     else
-      @task = Task.where(completed: 0)
+      @tasks = Task.where(completed: 0)
     end
-
   end
 
   def new
@@ -20,6 +19,7 @@ class TasksController < ApplicationController
   end
   def create
     @task = Task.new(task_params)
+
     # タスクが登録されたらEmailが送信される条件分岐。
     if @task.save
       TaskMailer.creation_email(@task).deliver_now
