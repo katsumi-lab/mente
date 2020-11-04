@@ -53,6 +53,12 @@
     <%= link_to '未完了', tasks_path, class: 'btn btn-primary btn-sm ml-1'%>
   <%end%>
   
+  <p>検索</p>
+    <%= form_tag(search_path,:method => 'get') do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag 'Search', :name => nil %>
+    <% end %>
+
   <div class="row d-flex justify-content-around">
     <% @tasks.each do |task| %>
       <div class="card" style="width: 18rem;">
