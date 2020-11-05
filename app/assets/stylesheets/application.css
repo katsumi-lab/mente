@@ -13,3 +13,13 @@
 .pagination>li>a:hover {        
   border-radius: 15px;    /*角を丸くする*/
 }
+
+.dl-style1 {
+  background: linear-gradient(transparent 70%, #ff99ab 70%);
+}
+.dl-style2 {
+  background: linear-gradient(transparent 70%, #f8e58c 70%);
+}
+.dl-style3 {
+  background: linear-gradient(transparent 70%, #f3f3f3 70%);
+}

@@ -37,6 +37,7 @@ ja:
     created_at: 登録日時
     updated_at: 更新日時
     user: ユーザ
+    deadline: お手入れの目安
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
