@@ -29,6 +29,7 @@ class TasksController < ApplicationController
 
     # タスクが登録されたらEmailが送信される条件分岐。
     if @task.save
+
       TaskMailer.creation_email(@task).deliver_now
       redirect_to @task, notice: "「#{@task.name}」を登録しました。"
     else
@@ -57,7 +58,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :room, :item,:description, :completed).merge(user_id: current_user.id)
+    params.require(:task).permit(:name, :room, :item,:description, :completed, :deadline).merge(user_id: current_user.id)
   end
   
   def move_to_index
