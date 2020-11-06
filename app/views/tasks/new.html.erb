@@ -5,26 +5,208 @@
 </div>
 
 <%= form_with model:@task, local: true do |f| %>
-<div class="form-group">
-    <%= f.label :お手入れネーム %>
-    <%= f.text_field :name, class: "form-control", id: 'task_name', placeholder: '例）大掃除' %>
-  </div>
-  
+
+  <tr>
   <div class="form-group">
-    <%= f.label :部屋, for:"exampleFormControlSelect1"%>
-    <%= f.select :room,  ['洋室1', '洋室2', '洋室3', '和室1', 'その他'],{ include_blank: '選択してください'}, {class:"form-control", id:"exampleFormControlSelect1"}%>
+    <td>
+    <%=f.label '場所'%>
+      <select class="group1 form-control" name="smple1-1" id="lv1" >
+        <option value="0" selected="selected">-- select --</option>
+        <option value="1階" class="a">1階</option>
+        <option value="2階" class="b">2階</option>
+        <option value="3階" class="c">3階</option>
+        <option value="外回り" class="d">外回り</option>
+      </select> 
+    </td>
   </div>
-  
+
   <div class="form-group">
-    <%= f.label :項目, for:"exampleFormControlSelect2"%>
-    <%= f.select :item,  ['サッシ', 'フローリング', '壁紙', '換気フィルター', 'その他'],{ include_blank: '選択してください'}, {class:"form-control", id:"exampleFormControlSelect2"}%>
+    <td>
+    <%=f.label '部屋'%>
+        <select class="group1 form-control" name="smple1-2" id="lv2" disabled="disabled">
+          <option value="0" selected="selected">-- select --</option>
+          <option value="玄関" class="p1階">玄関</option>
+          <option value="リビング・ダイニング" class="p1階">リビング・ダイニング</option>
+          <option value="和室" class="p1階">和室</option>
+          <option value="キッチン" class="p1階">キッチン</option>
+          <option value="洗面所" class="p1階">洗面所</option>
+          <option value="浴室" class="p1階">浴室</option>
+          <option value="トイレ" class="p1階">トイレ</option>
+          <option value="階段" class="p1階">階段</option>
+
+          <option value="洋室A" class="p2階">洋室A</option>
+          <option value="洋室B" class="p2階">洋室B</option>
+          <option value="洋室C" class="p2階">洋室C</option>
+          <option value="トイレ" class="p2階">トイレ</option>
+          <option value="キッチン" class="p2階">キッチン</option>
+          <option value="洗面所" class="p2階">洗面所</option>
+          <option value="浴室" class="p2階">浴室</option>
+          <option value="バルコニー" class="p2階">バルコニー</option>
+          <option value="階段" class="p2階">階段</option>
+
+          <option value="洋室A" class="p3階">洋室A</option>
+          <option value="洋室B" class="p3階">洋室B</option>
+          <option value="洋室C" class="p3階">洋室C</option>
+          <option value="トイレ" class="p3階">トイレ</option>
+          <option value="バルコニー" class="p3階">バルコニー</option>
+          
+          <option value="玄関ポーチ" class="p外回り">玄関ポーチ</option>
+          <option value="駐車スペース" class="p外回り">駐車スペース</option>
+          <option value="砂利敷き" class="p外回り">砂利敷き</option>
+        </select>
+    </td>
   </div>
-  
+
   <div class="form-group">
-    <%= f.label :説明,for:"exampleFormControlTextarea1"%>
-    <%= f.text_area :description, class:"form-control", id:"exampleFormControlTextarea1", rows:"3", placeholder: '例）半年に一度の大掃除なので念入りに！'%>
+    <td>
+    <%=f.label '項目'%>
+      <select class="group1 form-control" name="smple1-3" id="lv3" disabled="disabled">
+        <option value="0" selected="selected">-- select --</option>
+        <option value="玄関ドアのお掃除" class="p玄関">玄関ドアのお掃除</option>
+        <option value="ガラス窓のお掃除" class="p玄関">窓ガラスのお掃除</option>
+        <option value="シューズボックスのお掃除" class="p玄関">シューズボックスのお掃除</option>
+        <option value="タイルのお掃除" class="p玄関">タイルのお掃除</option>
+        
+        <option value="窓ガラスのお掃除" class="pリビング・ダイニング">窓ガラスのお掃除</option>
+        <option value="シャッターのお掃除" class="pリビング・ダイニング">シャッターのお掃除</option>
+        <option value="網戸のお掃除" class="pリビング・ダイニング">網戸のお掃除</option>
+        <option value="吸気口のお掃除" class="pリビング・ダイニング">吸気口のお掃除</option>
+        <option value="フローリングのお掃除" class="pリビング・ダイニング">フローリングのお掃除</option>
+        <option value="クローゼットのお掃除" class="pリビング・ダイニング">クローゼットのお掃除</option>
+        
+        <option value="窓ガラスのお掃除" class="p和室">窓ガラスのお掃除</option>
+        <option value="シャッターのお掃除" class="p和室">シャッターのお掃除</option>
+        <option value="網戸のお掃除" class="p和室">網戸のお掃除</option>
+        <option value="吸気口のお掃除" class="p和室">吸気口のお掃除</option>
+        <option value="畳のお掃除" class="p和室">畳のお掃除</option>
+        <option value="クローゼットのお掃除" class="p和室">クローゼットのお掃除</option>
+        
+        <option value="シンクのお掃除" class="pキッチン">シンクのお掃除</option>
+        <option value="ワークトップのお掃除" class="pキッチン">ワークトップのお掃除</option>
+        <option value="レンジフードのお掃除" class="pキッチン">レンジフードのお掃除</option>
+        <option value="コンロのお掃除" class="pキッチン">コンロのお掃除</option>
+        <option value="キッチンパネルのお掃除" class="pキッチン">キッチンパネルのお掃除</option>
+        
+        <option value="洗面化粧台のお掃除" class="p洗面所">洗面化粧台のお掃除</option>
+        <option value="窓ガラスのお掃除" class="p洗面所">窓ガラスのお掃除</option>
+        <option value="換気扇のお掃除" class="p洗面所">換気扇のお掃除</option>
+        <option value="洗濯機周辺のお掃除" class="p洗面所">洗濯機周辺のお掃除</option>
+        
+        <option value="窓ガラスのお掃除" class="p浴室">窓ガラスのお掃除</option>
+        <option value="洗い場" class="p浴室">洗い場</option>
+        <option value="浴槽" class="p浴室">浴槽</option>
+        <option value="換気扇（浴室暖房乾燥機）" class="p浴室">換気扇（浴室暖房乾燥機）</option>
+        
+        <option value="便器" class="pトイレ">便器</option>
+        <option value="窓ガラス" class="pトイレ">窓ガラス</option>
+        <option value="手洗いカウンター" class="pトイレ">手洗いカウンター</option>
+        <option value="床" class="pトイレ">床</option>
+
+        <option value="踏板のお掃除" class="p階段">踏板のお掃除</option>
+        <option value="窓ガラスのお掃除" class="p階段">窓ガラスのお掃除</option>
+        <option value="手摺り壁のお掃除" class="p階段">手摺り壁のお掃除</option>
+        
+        <option value="窓ガラスのお掃除" class="p洋室A">窓ガラスのお掃除</option>
+        <option value="シャッターのお掃除" class="p洋室A">シャッターのお掃除</option>
+        <option value="網戸のお掃除" class="p洋室A">網戸のお掃除</option>
+        <option value="吸気口のお掃除" class="p洋室A">吸気口のお掃除</option>
+        <option value="フローリングのお掃除" class="p洋室A">フローリングのお掃除</option>
+        <option value="クローゼットのお掃除" class="p洋室A">クローゼットのお掃除</option>
+        
+        <option value="窓ガラスのお掃除" class="p洋室B">窓ガラスのお掃除</option>
+        <option value="シャッターのお掃除" class="p洋室B">シャッターのお掃除</option>
+        <option value="網戸のお掃除" class="p洋室B">網戸のお掃除</option>
+        <option value="吸気口のお掃除" class="p洋室B">吸気口のお掃除</option>
+        <option value="フローリングのお掃除" class="p洋室B">フローリングのお掃除</option>
+        <option value="クローゼットのお掃除" class="p洋室B">クローゼットのお掃除</option>
+        
+        <option value="窓ガラスのお掃除" class="p洋室C">窓ガラスのお掃除</option>
+        <option value="シャッターのお掃除" class="p洋室C">シャッターのお掃除</option>
+        <option value="網戸のお掃除" class="p洋室C">網戸のお掃除</option>
+        <option value="吸気口のお掃除" class="p洋室C">吸気口のお掃除</option>
+        <option value="フローリングのお掃除" class="p洋室C">フローリングのお掃除</option>
+        <option value="クローゼットのお掃除" class="p洋室C">クローゼットのお掃除</option>
+
+        <option value="床のお掃除" class="pバルコニー">床のお掃除</option>
+        <option value="排水口のお掃除" class="pバルコニー">排水口のお掃除</option>
+
+        <option value="タイルのお掃除" class="p玄関ポーチ">タイルのお掃除</option>
+        <option value="サインポールのお掃除" class="p玄関ポーチ">サインポールのお掃除</option>
+        <option value="土間のお掃除" class="p駐車スペース">土間のお掃除</option>
+        <option value="雑草の処理" class="p砂利敷き">雑草の処理</option>
+        <option value="汚水桝のお掃除" class="p砂利敷き">汚水桝のお掃除</option>
+        <option value="給湯器のお掃除" class="p砂利敷き">給湯器のお掃除</option>
+      </select>
+    </td>
   </div>
-  
+
+  <div class="form-group">
+    <td>
+    <%=f.label 'お手入れ'%>
+        <select class="group1 form-control" name="smple1-4" id="lv4" disabled="disabled">
+          <option value="0" selected="selected">-- select --</option>
+          <option value="1"  class="p1">a111</option>
+          <option value="2"  class="p1">a112</option>
+          <option value="3"  class="p2">a121</option>
+          <option value="4"  class="p2">a122</option>
+          <option value="5"  class="p3">a211</option>
+          <option value="6"  class="p3">a212</option>
+          <option value="7"  class="p4">a221</option>
+          <option value="8"  class="p4">a222</option>
+          <option value="9"  class="p5">b111</option>
+          <option value="10" class="p5">b112</option>
+          <option value="11" class="p6">b121</option>
+          <option value="12" class="p6">b122</option>
+          <option value="13" class="p7">b211</option>
+          <option value="14" class="p7">b212</option>
+          <option value="15" class="p8">b221</option>
+          <option value="16" class="p8">b222</option>
+        </select>
+    </td>
+  </div>
+</tr>
+
+  <div class="form-group">
+    <td>
+    <%=f.label '詳細'%>
+      <select readonly class="group1 form-control form-control-plaintext" name="smple1-5" id="lv5" disabled="disabled">
+        <option value="0" selected="selected">-- select --</option>
+        <option value="1"  class="p1">a1111</option>
+        <option value="2"  class="p1">a1112</option>
+        <option value="3"  class="p2">a1121</option>
+        <option value="4"  class="p2">a1122</option>
+        <option value="5"  class="p3">a1211</option>
+        <option value="6"  class="p3">a1212</option>
+        <option value="7"  class="p4">a1221</option>
+        <option value="8"  class="p4">a1222</option>
+        <option value="9"  class="p5">a2111</option>
+        <option value="10" class="p5">a2112</option>
+        <option value="11" class="p6">a2121</option>
+        <option value="12" class="p6">a2122</option>
+        <option value="13" class="p7">a2211</option>
+        <option value="14" class="p7">a2212</option>
+        <option value="15" class="p8">a2221</option>
+        <option value="16" class="p8">a2222</option>
+        <option value="17" class="p9">b1111</option>
+        <option value="18" class="p9">b1112</option>
+        <option value="19" class="p10">b1121</option>
+        <option value="20" class="p10">b1122</option>
+        <option value="21" class="p11">b1211</option>
+        <option value="22" class="p11">b1212</option>
+        <option value="23" class="p12">b1221</option>
+        <option value="24" class="p12">b1222</option>
+        <option value="25" class="p13">b2111</option>
+        <option value="26" class="p13">b2112</option>
+        <option value="27" class="p14">b2121</option>
+        <option value="28" class="p14">b2122</option>
+        <option value="29" class="p15">b2211</option>
+        <option value="30" class="p15">b2212</option>
+        <option value="31" class="p16">b2221</option>
+        <option value="32" class="p16">b2222</option>
+      </select>
+    </td>
+  </div>
+
   <div class="form-group">
     <%= f.label :deadline,  '目安の時期' %>
     <%= f.date_field :deadline, class:"form-control ", id:"date" %>
@@ -33,5 +215,10 @@
   <div class="form-group">
     <%= f.hidden_field :completed,:value => 0, id: 'task_completed'%>
   </div>
-  <%= f.submit nil, class: 'btn btn-primary'%>
+
+  
+ <div class="d-flex justify-content-between">
+    <%= f.submit nil, class: 'btn btn-primary btn-lg'%>
+    <input type = "reset" value="clear">
+  </div>
 <%end%>
