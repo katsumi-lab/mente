@@ -9,7 +9,7 @@
   <tr>
   <div class="form-group">
     <td>
-    <%=f.label '場所'%>
+    <%=f.label :floor, '場所'%>
       <select class="group1 form-control" name="floor" id="lv1" %>
         <option value="0" selected="selected">-- select --</option>
         <option value="1階" class="a">1階</option>
@@ -22,7 +22,7 @@
 
   <div class="form-group">
     <td>
-    <%=f.label '部屋'%>
+    <%=f.label :room, '部屋'%>
         <select class="group1 form-control" name="room" id="lv2" disabled="disabled">
           <option value="0" selected="selected">-- select --</option>
           <option value="玄関" class="p1階">玄関</option>
@@ -59,11 +59,11 @@
 
   <div class="form-group">
     <td>
-    <%=f.label '項目'%>
+    <%=f.label :item, '項目'%>
       <select class="group1 form-control" name="item" id="lv3" disabled="disabled">
         <option value="0" selected="selected">-- select --</option>
         <option value="玄関ドアのお掃除" class="p玄関">玄関ドアのお掃除</option>
-        <option value="ガラス窓のお掃除" class="p玄関">窓ガラスのお掃除</option>
+        <option value="窓ガラスのお掃除" class="p玄関">窓ガラスのお掃除</option>
         <option value="網戸のお掃除" class="p玄関">網戸のお掃除</option>
         <option value="シューズボックスのお掃除" class="p玄関">シューズボックスのお掃除</option>
         <option value="タイル床のお掃除" class="p玄関">タイル床のお掃除</option>
@@ -149,7 +149,7 @@
 
   <div class="form-group">
     <td>
-    <%=f.label 'お手入れ'%>
+    <%=f.label :mentenance, 'お手入れ'%>
         <select class="group1 form-control" name="mentenance" id="lv4" disabled="disabled">
           <option value="0" selected="selected">-- select --</option>
           <option value="拭き掃除（屋外面）"  class="p玄関ドアのお掃除">拭き掃除（屋外面）</option>
@@ -270,7 +270,7 @@
 
   <div class="form-group">
     <td>
-    <%=f.label '詳細'%>
+    <%=f.label :description, '詳細'%>
       <select readonly class="group1 form-control form-control-plaintext" name="description" id="lv5" disabled="disabled" onchange="myfunc()">
         <option value="0" selected="selected">-- select --</option>
         <option value="1"  class="p拭き掃除（屋外面）">雨のあとは汚れる</option>
