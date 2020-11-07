@@ -31,7 +31,7 @@ class TasksController < ApplicationController
     if @task.save
 
       TaskMailer.creation_email(@task).deliver_now
-      redirect_to @task, notice: "「#{@task.name}」を登録しました。"
+      redirect_to @task, notice: "「#{@task.floor}の#{@task.room}の#{@task.item}」を登録しました。"
     else
       render :new
     end
@@ -43,13 +43,13 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.update(task_params)
-    redirect_to @task, notice:"「#{@task.name}」を更新しました。"
+    redirect_to @task, notice:"「#{@task.floor}の#{@task.room}の#{@task.item}」を更新しました。"
   end
 
   def destroy
     task =Task.find(params[:id])
     task.destroy
-    redirect_to tasks_path, notice: "「#{task.name}」を削除しました。"
+    redirect_to tasks_path, notice: "「#{@task.floor}の#{@task.room}の#{@task.item}」を削除しました。"
   end
 
   private

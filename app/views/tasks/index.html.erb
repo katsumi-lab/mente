@@ -53,15 +53,15 @@
     <%= link_to '未完了', tasks_path, class: 'btn btn-primary btn-sm ml-1'%>
   <%end%>
   
-  <div class="row justify-content-end">
+  <%# <div class="row justify-content-end">
     <%= search_form_for @q, class: 'mb-5 ' do |f| %>
-    <div class="form-inline">
+    <%# <div class="form-inline">
       <%= f.label :name_cont, 'タイトル', class: 'my-1 mr-2'%>
-      <%= f.search_field :name_cont, class: 'my-1 mr-sm-2'%>
-      <%= f.submit '検索', class: 'btn btn-primary my-1'%>
-    </div>
+      <%# <%= f.search_field :name_cont, class: 'my-1 mr-sm-2'%> 
+      <%# <%= f.submit '検索', class: 'btn btn-primary my-1'%> 
+    <%# </div> 
     <%end%>
-  </div>
+  </div> 
 
   <div class="row d-flex justify-content-around">
     <% @tasks.each do |task| %>
@@ -73,10 +73,9 @@
           
         <div class="card-body">
           <div class="text-muted deadline_style(task)"><%=deadline_count(task)%></div>
-          <h5 class="card-title"><%=task.name%></h5>
+          <h5 class="card-title"><%=task.floor%></h5>
           <p class="card-text"><%= task.room%></p>
           <p class="card-text"><%=task.item%></p>
-          <p class="card-text"><%=task.description%></p>
           
           <label class="mt-2 custom-control-label card-text font-weight-light" for="customSwitch1">完了</label>
           </div>

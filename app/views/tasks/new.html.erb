@@ -10,7 +10,7 @@
   <div class="form-group">
     <td>
     <%=f.label '場所'%>
-      <select class="group1 form-control" name="smple1-1" id="lv1" >
+      <select class="group1 form-control" name="floor" id="lv1" %>
         <option value="0" selected="selected">-- select --</option>
         <option value="1階" class="a">1階</option>
         <option value="2階" class="b">2階</option>
@@ -23,7 +23,7 @@
   <div class="form-group">
     <td>
     <%=f.label '部屋'%>
-        <select class="group1 form-control" name="smple1-2" id="lv2" disabled="disabled">
+        <select class="group1 form-control" name="room" id="lv2" disabled="disabled">
           <option value="0" selected="selected">-- select --</option>
           <option value="玄関" class="p1階">玄関</option>
           <option value="リビング・ダイニング" class="p1階">リビング・ダイニング</option>
@@ -60,7 +60,7 @@
   <div class="form-group">
     <td>
     <%=f.label '項目'%>
-      <select class="group1 form-control" name="smple1-3" id="lv3" disabled="disabled">
+      <select class="group1 form-control" name="item" id="lv3" disabled="disabled">
         <option value="0" selected="selected">-- select --</option>
         <option value="玄関ドアのお掃除" class="p玄関">玄関ドアのお掃除</option>
         <option value="ガラス窓のお掃除" class="p玄関">窓ガラスのお掃除</option>
@@ -150,7 +150,7 @@
   <div class="form-group">
     <td>
     <%=f.label 'お手入れ'%>
-        <select class="group1 form-control" name="smple1-4" id="lv4" disabled="disabled">
+        <select class="group1 form-control" name="mentenance" id="lv4" disabled="disabled">
           <option value="0" selected="selected">-- select --</option>
           <option value="拭き掃除（屋外面）"  class="p玄関ドアのお掃除">拭き掃除（屋外面）</option>
           <option value="拭き掃除（室内面）"  class="p玄関ドアのお掃除">拭き掃除（室内面）</option>
@@ -271,7 +271,7 @@
   <div class="form-group">
     <td>
     <%=f.label '詳細'%>
-      <select readonly class="group1 form-control form-control-plaintext" name="smple1-5" id="lv5" disabled="disabled" onchange="myfunc()">
+      <select readonly class="group1 form-control form-control-plaintext" name="description" id="lv5" disabled="disabled" onchange="myfunc()">
         <option value="0" selected="selected">-- select --</option>
         <option value="1"  class="p拭き掃除（屋外面）">雨のあとは汚れる</option>
         <option value="2"  class="p拭き掃除（室内面）">結露はこまめに拭き取る換気も必要</option>
