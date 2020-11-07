@@ -5,12 +5,13 @@ const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
 
 $(document).ready(function(){
-  $(this).tgHierSelectV2({
-      group: 'group1',
-      maxLevel: '5',
-      defaultSelect: '----- 選択してください -----',
-  });
+    $(this).tgHierSelectV2({
+        group: 'group1',
+        maxLevel: '5',
+        defaultSelect: '----- 選択してください -----',
+    });
 });
+
 
 (function($){
 $.fn.tgHierSelectV2 = function(options){
@@ -45,7 +46,7 @@ $.fn.tgHierSelectV2 = function(options){
 
             // デフォルトのoptionを先頭に表示
             for(cnt=nextLevelNum; cnt<=opts.maxLevel; cnt++){
-              $('#lv'+cnt).prepend('<option value="0" selected="selected">'+opts.defaultSelect+'</option>');
+                $('#lv'+cnt).prepend('<option value="0" selected="selected">'+opts.defaultSelect+'</option>');
             }
             // 変更したプルダウン以下の子プルダウンを全てdisabledに
             if((nextLevelNum+1) <= opts.maxLevel){
