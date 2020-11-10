@@ -9,40 +9,38 @@
 
   <%= form_with model:@task, local: true do |f| %>
 
-    <tr>
     <div class="form-group">
       <td>
       <%=f.label :floor, '場所'%>
-      <%= f.collection_select(:floor, FloorCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control"}) %>
+      <%= f.collection_select(:floor, FloorCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control", id: "floor_category"}) %>
       </td>
     </div>
 
     <div class="form-group">
       <td>
       <%=f.label :room, '部屋'%>
-      <%= f.collection_select(:room, RoomCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control"}) %>
+      <%= f.collection_select(:room, RoomCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control", id: "room_category"}) %>
       </td>
     </div>
 
     <div class="form-group">
       <td>
       <%=f.label :item, '項目'%>
-      <%= f.collection_select(:item, ItemCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control"}) %>
+      <%= f.collection_select(:item, ItemCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control", id: "item_category"}) %>
       </td>
     </div>
 
     <div class="form-group">
       <td>
       <%=f.label :mentenance, 'お手入れ'%>
-      <%= f.collection_select(:mentenance, MentenanceCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control"}) %>
+      <%= f.collection_select(:mentenance, MentenanceCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control",id: "mentenance_category"}) %>
       </td>
     </div>
-  </tr>
 
     <div class="form-group">
       <td>
       <%=f.label :description, '詳細'%>
-      <%= f.collection_select(:description, DescriptionCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control"}) %>
+      <%= f.collection_select(:description, DescriptionCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control", id: "description_category"}) %>
       </td>
     </div>
 
@@ -65,5 +63,5 @@
     </div>
   <%end%>
 </div>
-
+<%# <%= javascript_pack_tag 'category_select_box', 'data-turbolinks-track': 'reload'  %> 
 <%= render "shared/footer" %>
