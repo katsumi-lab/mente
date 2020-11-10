@@ -10,28 +10,28 @@
   <div class="form-group">
     <td>
     <%=f.label :floor, '場所'%>
-    <%= f.collection_select(:floor, FloorCategory.all, :name, :name,{}, {class:"form-control"}) %>
+    <%= f.collection_select(:floor, FloorCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control"}) %>
     </td>
   </div>
 
   <div class="form-group">
     <td>
     <%=f.label :room, '部屋'%>
-    <%= f.collection_select(:room, RoomCategory.all, :name, :name,{}, {class:"form-control"}) %>
+    <%= f.collection_select(:room, RoomCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control"}) %>
     </td>
   </div>
 
   <div class="form-group">
     <td>
     <%=f.label :item, '項目'%>
-    <%= f.collection_select(:item, ItemCategory.all, :name, :name,{}, {class:"form-control"}) %>
+    <%= f.collection_select(:item, ItemCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control"}) %>
     </td>
   </div>
 
   <div class="form-group">
     <td>
     <%=f.label :mentenance, 'お手入れ'%>
-    <%= f.collection_select(:mentenance, MentenanceCategory.all, :name, :name,{}, {class:"form-control"}) %>
+    <%= f.collection_select(:mentenance, MentenanceCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control"}) %>
     </td>
   </div>
 </tr>
@@ -39,7 +39,7 @@
   <div class="form-group">
     <td>
     <%=f.label :description, '詳細'%>
-    <%= f.collection_select(:description, DescriptionCategory.all, :name, :name,{}, {class:"form-control"}) %>
+    <%= f.collection_select(:description, DescriptionCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control"}) %>
     </td>
   </div>
 
@@ -52,9 +52,12 @@
     <%= f.hidden_field :completed,:value => 0, id: 'task_completed'%>
   </div>
 
-  
- <div class="d-flex justify-content-between">
-    <%= f.submit nil, class: 'btn btn-primary btn-lg'%>
-    <input type = "reset" value="clear">
+  <div class="d-flex justify-content-end">
+    <input type = "reset" value="clear" class="btn btn-outline-secondary">
+  </div>
+  <br>
+  <br>
+  <div class="d-flex justify-content-between">
+    <%= f.submit nil, class: 'btn btn-primary btn-lg btn-block'%>
   </div>
 <%end%>
