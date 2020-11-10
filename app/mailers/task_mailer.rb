@@ -5,7 +5,7 @@ class TaskMailer < ApplicationMailer
     @task = task
     @user = task.user
     # @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'タスク作成完了メール')
+    mail(to: @user.email, subject: 'お手入れのお知らせ')
   end
 
 end
