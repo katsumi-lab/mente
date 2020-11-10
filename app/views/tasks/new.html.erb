@@ -10,260 +10,28 @@
   <div class="form-group">
     <td>
     <%=f.label :floor, '場所'%>
-      <select class="group1 form-control" name="floor" id="lv1" %>
-        <option value="0" selected="selected">-- select --</option>
-        <option value="1階" class="a">1階</option>
-        <option value="2階" class="b">2階</option>
-        <option value="3階" class="c">3階</option>
-        <option value="外回り" class="d">外回り</option>
-      </select> 
+    <%= f.collection_select(:floor, FloorCategory.all, :name, :name,{}, {class:"form-control"}) %>
     </td>
   </div>
 
   <div class="form-group">
     <td>
     <%=f.label :room, '部屋'%>
-        <select class="group1 form-control" name="room" id="lv2" disabled="disabled">
-          <option value="0" selected="selected">-- select --</option>
-          <option value="玄関" class="p1階">玄関</option>
-          <option value="リビング・ダイニング" class="p1階">リビング・ダイニング</option>
-          <option value="和室" class="p1階">和室</option>
-          <option value="キッチン" class="p1階">キッチン</option>
-          <option value="洗面所" class="p1階">洗面所</option>
-          <option value="浴室" class="p1階">浴室</option>
-          <option value="トイレ" class="p1階">トイレ</option>
-          <option value="階段" class="p1階">階段</option>
-
-          <option value="洋室A" class="p2階">洋室A</option>
-          <option value="洋室B" class="p2階">洋室B</option>
-          <option value="洋室C" class="p2階">洋室C</option>
-          <option value="トイレ" class="p2階">トイレ</option>
-          <option value="キッチン" class="p2階">キッチン</option>
-          <option value="洗面所" class="p2階">洗面所</option>
-          <option value="浴室" class="p2階">浴室</option>
-          <option value="バルコニー" class="p2階">バルコニー</option>
-          <option value="階段" class="p2階">階段</option>
-
-          <option value="洋室A" class="p3階">洋室A</option>
-          <option value="洋室B" class="p3階">洋室B</option>
-          <option value="洋室C" class="p3階">洋室C</option>
-          <option value="トイレ" class="p3階">トイレ</option>
-          <option value="バルコニー" class="p3階">バルコニー</option>
-          
-          <option value="玄関ポーチ" class="p外回り">玄関ポーチ</option>
-          <option value="駐車スペース" class="p外回り">駐車スペース</option>
-          <option value="建物外周" class="p外回り">建物外周</option>
-        </select>
+    <%= f.collection_select(:room, RoomCategory.all, :name, :name,{}, {class:"form-control"}) %>
     </td>
   </div>
 
   <div class="form-group">
     <td>
     <%=f.label :item, '項目'%>
-      <select class="group1 form-control" name="item" id="lv3" disabled="disabled">
-        <option value="0" selected="selected">-- select --</option>
-        <option value="玄関ドアのお掃除" class="p玄関">玄関ドアのお掃除</option>
-        <option value="窓ガラスのお掃除" class="p玄関">窓ガラスのお掃除</option>
-        <option value="網戸のお掃除" class="p玄関">網戸のお掃除</option>
-        <option value="シューズボックスのお掃除" class="p玄関">シューズボックスのお掃除</option>
-        <option value="タイル床のお掃除" class="p玄関">タイル床のお掃除</option>
-        
-        <option value="窓ガラスのお掃除" class="pリビング・ダイニング">窓ガラスのお掃除</option>
-        <option value="シャッターのお掃除" class="pリビング・ダイニング">シャッターのお掃除</option>
-        <option value="網戸のお掃除" class="pリビング・ダイニング">網戸のお掃除</option>
-        <option value="吸気口のお掃除" class="pリビング・ダイニング">吸気口のお掃除</option>
-        <option value="フローリングのお掃除" class="pリビング・ダイニング">フローリングのお掃除</option>
-        <option value="クローゼットのお掃除" class="pリビング・ダイニング">クローゼットのお掃除</option>
-        
-        <option value="窓ガラスのお掃除" class="p和室">窓ガラスのお掃除</option>
-        <option value="網戸のお掃除" class="p和室">網戸のお掃除</option>
-        <option value="シャッターのお掃除" class="p和室">シャッターのお掃除</option>
-        <option value="網戸のお掃除" class="p和室">網戸のお掃除</option>
-        <option value="吸気口のお掃除" class="p和室">吸気口のお掃除</option>
-        <option value="畳のお掃除" class="p和室">畳のお掃除</option>
-        <option value="クローゼットのお掃除" class="p和室">クローゼットのお掃除</option>
-        
-        <option value="シンクのお掃除" class="pキッチン">シンクのお掃除</option>
-        <option value="ワークトップのお掃除" class="pキッチン">ワークトップのお掃除</option>
-        <option value="レンジフードのお掃除" class="pキッチン">レンジフードのお掃除</option>
-        <option value="コンロのお掃除" class="pキッチン">コンロのお掃除</option>
-        <option value="キッチンパネルのお掃除" class="pキッチン">キッチンパネルのお掃除</option>
-        
-        <option value="洗面化粧台のお掃除" class="p洗面所">洗面化粧台のお掃除</option>
-        <option value="窓ガラスのお掃除" class="p洗面所">窓ガラスのお掃除</option>
-        <option value="網戸のお掃除" class="p洗面所">網戸のお掃除</option>
-        <option value="換気扇のお掃除" class="p洗面所">換気扇のお掃除</option>
-        <option value="洗濯機周辺のお掃除" class="p洗面所">洗濯機周辺のお掃除</option>
-        
-        <option value="窓ガラスのお掃除" class="p浴室">窓ガラスのお掃除</option>
-        <option value="網戸のお掃除" class="p浴室">網戸のお掃除</option>
-        <option value="洗い場のお掃除" class="p浴室">洗い場のお掃除</option>
-        <option value="浴槽のお掃除" class="p浴室">浴槽のお掃除</option>
-        <option value="換気扇（浴室暖房乾燥機）のお掃除" class="p浴室">換気扇（浴室暖房乾燥機）のお掃除</option>
-        
-        <option value="便器のお掃除" class="pトイレ">便器のお掃除</option>
-        <option value="窓ガラスのお掃除" class="pトイレ">窓ガラスのお掃除</option>
-        <option value="網戸のお掃除" class="pトイレ">網戸のお掃除</option>
-        <option value="手洗いカウンターのお掃除" class="pトイレ">手洗いカウンターのお掃除</option>
-        <option value="床（トイレ）のお掃除" class="pトイレ">床（トイレ）のお掃除</option>
-
-        <option value="踏板のお掃除" class="p階段">踏板のお掃除</option>
-        <option value="窓ガラスのお掃除" class="p階段">窓ガラスのお掃除</option>
-        <option value="網戸のお掃除" class="p階段">網戸のお掃除</option>
-        
-        <option value="窓ガラスのお掃除" class="p洋室A">窓ガラスのお掃除</option>
-        <option value="シャッターのお掃除" class="p洋室A">シャッターのお掃除</option>
-        <option value="網戸のお掃除" class="p洋室A">網戸のお掃除</option>
-        <option value="吸気口のお掃除" class="p洋室A">吸気口のお掃除</option>
-        <option value="フローリングのお掃除" class="p洋室A">フローリングのお掃除</option>
-        <option value="クローゼットのお掃除" class="p洋室A">クローゼットのお掃除</option>
-        
-        <option value="窓ガラスのお掃除" class="p洋室B">窓ガラスのお掃除</option>
-        <option value="シャッターのお掃除" class="p洋室B">シャッターのお掃除</option>
-        <option value="網戸のお掃除" class="p洋室B">網戸のお掃除</option>
-        <option value="吸気口のお掃除" class="p洋室B">吸気口のお掃除</option>
-        <option value="フローリングのお掃除" class="p洋室B">フローリングのお掃除</option>
-        <option value="クローゼットのお掃除" class="p洋室B">クローゼットのお掃除</option>
-        
-        <option value="窓ガラスのお掃除" class="p洋室C">窓ガラスのお掃除</option>
-        <option value="シャッターのお掃除" class="p洋室C">シャッターのお掃除</option>
-        <option value="網戸のお掃除" class="p洋室C">網戸のお掃除</option>
-        <option value="吸気口のお掃除" class="p洋室C">吸気口のお掃除</option>
-        <option value="フローリングのお掃除" class="p洋室C">フローリングのお掃除</option>
-        <option value="クローゼットのお掃除" class="p洋室C">クローゼットのお掃除</option>
-
-        <option value="床（バルコニー）のお掃除" class="pバルコニー">床（バルコニー）のお掃除</option>
-        <option value="排水溝のお掃除" class="pバルコニー">排水溝のお掃除</option>
-        <option value="外壁のお掃除" class="pバルコニー">外壁のお掃除</option>
-
-        <option value="タイル床のお掃除" class="p玄関ポーチ">タイル床のお掃除</option>
-        <option value="サインポールのお掃除" class="p玄関ポーチ">サインポールのお掃除</option>
-        <option value="土間のお掃除" class="p駐車スペース">土間のお掃除</option>
-        <option value="雑草の処理" class="p建物外周">雑草の処理</option>
-        <option value="汚水桝のお掃除" class="p建物外周">汚水桝のお掃除</option>
-        <option value="給湯器のお掃除" class="p建物外周">給湯器のお掃除</option>
-        <option value="外壁のお掃除" class="p建物外周">外壁のお掃除</option>
-      </select>
+    <%= f.collection_select(:item, ItemCategory.all, :name, :name,{}, {class:"form-control"}) %>
     </td>
   </div>
 
   <div class="form-group">
     <td>
     <%=f.label :mentenance, 'お手入れ'%>
-        <select class="group1 form-control" name="mentenance" id="lv4" disabled="disabled">
-          <option value="0" selected="selected">-- select --</option>
-          <option value="拭き掃除（屋外面）"  class="p玄関ドアのお掃除">拭き掃除（屋外面）</option>
-          <option value="拭き掃除（室内面）"  class="p玄関ドアのお掃除">拭き掃除（室内面）</option>
-          <option value="ドアクローザーの拭き掃除"  class="p玄関ドアのお掃除">ドアクローザーの拭き掃除</option>
-
-          <option value="拭き掃除（屋外面）"  class="p窓ガラスのお掃除">拭き掃除（屋外面）</option>
-          <option value="拭き掃除（室内面）"  class="p窓ガラスのお掃除">拭き掃除（室内面）</option>
-          <option value="サッシのレール掃除"  class="p窓ガラスのお掃除">サッシのレール掃除</option>
-        
-          <option value="換気"  class="pシューズボックスのお掃除">換気</option>
-          <option value="拭き掃除"  class="pシューズボックスのお掃除">拭き掃除</option>
-          <option value="棚の掃き掃除"  class="pシューズボックスのお掃除">棚の掃き掃除</option>
-
-          <option value="掃き掃除"  class="pタイル床のお掃除">掃き掃除</option>
-          <option value="ブラシでの清掃"  class="pタイル床のお掃除">ブラシでの清掃</option>
-          
-          <option value="レールのお掃除"  class="pシャッターのお掃除">レールのお掃除</option>
-          <option value="シャッターボックスのお掃除"  class="pシャッターのお掃除">シャッターボックスのお掃除</option>
-          <option value="シャッター本体（スラット）のお掃除"  class="pシャッターのお掃除">シャッター本体（スラット）のお掃除</option>
-          <option value="蜘蛛の巣の除去" class="pシャッターのお掃除">蜘蛛の巣の除去</option>
-          <option value="蜂の巣の除去" class="pシャッターのお掃除">蜂の巣の除去</option>
-
-          <option value="網戸の拭き掃除"  class="p網戸のお掃除">網戸の拭き掃除</option>
-          <option value="網戸の外れ留めチェック"  class="p網戸のお掃除">網戸の外れ留めチェック</option>
-
-          <option value="フィルターのお掃除"  class="p吸気口のお掃除">フィルターのお掃除</option>
-
-          <option value="拭き掃除"  class="pクローゼットのお掃除">拭き掃除</option>
-          <option value="扉の開閉"  class="pクローゼットのお掃除">扉の開閉</option>
-
-          <option value="畳の水拭き掃除"  class="p畳のお掃除">畳の水拭き掃除</option>
-          <option value="畳の掃き掃除"  class="p畳のお掃除">畳の掃き掃除</option>
-          <option value="敷居のお掃除"  class="p畳のお掃除">敷居のお掃除</option>
-
-          <option value="水垢のお掃除" class="pシンクのお掃除">水垢のお掃除</option>
-          <option value="石鹸カスのお掃除" class="pシンクのお掃除">石鹸カスのお掃除</option>
-          <option value="シンクの排水口のお掃除" class="pシンクのお掃除">シンクの排水口のお掃除</option>
-
-          <option value="油汚れのお掃除" class="pワークトップのお掃除">油汚れのお掃除</option>
-          <option value="水垢のお掃除" class="pワークトップのお掃除">水垢のお掃除</option>
-
-          <option value="油汚れのお掃除" class="pレンジフードのお掃除">油汚れのお掃除</option>
-          <option value="レンジフードフィルターのお掃除" class="pレンジフードのお掃除">レンジフードフィルターのお掃除</option>
-          <option value="レンジフード周辺のお掃除" class="pレンジフードのお掃除">レンジフード周辺のお掃除</option>
-
-          <option value="油汚れのお掃除" class="pコンロのお掃除">油汚れのお掃除</option>
-          <option value="グリルのお掃除" class="pコンロのお掃除">グリルのお掃除</option>
-
-          <option value="油汚れのお掃除" class="pキッチンパネルのお掃除">油汚れのお掃除</option>
-          <option value="水垢のお掃除" class="pキッチンパネルのお掃除">水垢のお掃除</option>
-
-          <option value="排水口のお掃除" class="p洗面化粧台のお掃除">排水口のお掃除</option>
-          <option value="水垢のお掃除" class="p洗面化粧台のお掃除">水垢のお掃除</option>
-          <option value="石鹸カスのお掃除" class="p洗面化粧台のお掃除">石鹸カスのお掃除</option>
-          <option value="鏡のお掃除" class="p洗面化粧台のお掃除">鏡のお掃除</option>
-
-          <option value="フィルターのお掃除" class="p換気扇のお掃除">フィルターのお掃除</option>
-
-          <option value="洗濯パンや洗濯機天面のホコリ除去"  class="p洗濯機周辺のお掃除">洗濯パンや洗濯機天面のホコリ除去</option>
-
-          <option value="排水口のお掃除"  class="p洗い場のお掃除">排水口のお掃除</option>
-          <option value="ピンクのお掃除"  class="p洗い場のお掃除">ピンク汚れのお掃除</option>
-          <option value="鏡のお掃除"  class="p洗い場のお掃除">鏡のお掃除</option>
-          <option value="水垢のお掃除"  class="p洗い場のお掃除">水垢のお掃除</option>
-          <option value="石鹸カスのお掃除"  class="p洗い場のお掃除">石鹸カスのお掃除</option>
-
-          <option value="排水口のお掃除"  class="p浴槽のお掃除">排水口のお掃除</option>
-          <option value="ピンクのお掃除"  class="p浴槽のお掃除">ピンク汚れのお掃除</option>
-          <option value="鏡のお掃除"  class="p浴槽のお掃除">鏡のお掃除</option>
-          <option value="水垢のお掃除"  class="p浴槽のお掃除">水垢のお掃除</option>
-          <option value="石鹸カスのお掃除"  class="p浴槽のお掃除">石鹸カスのお掃除</option>
-
-          <option value="フィルターのお掃除"  class="p換気扇（浴室暖房乾燥機）のお掃除">フィルターのお掃除</option>
-
-          <option value="便器内のお掃除"  class="p便器のお掃除">便器内のお掃除</option>
-          <option value="便座のお掃除"  class="p便器のお掃除">便座のお掃除</option>
-          <option value="手洗い付きタンクのお掃除"  class="p便器のお掃除">手洗い付きタンクのお掃除</option>
-
-          <option value="手洗いボウルのお掃除"  class="p手洗いカウンターのお掃除">手洗いボウルのお掃除</option>
-
-          <option value="布類の洗濯"  class="p床（トイレ）のお掃除">布類の洗濯</option>
-          <option value="トイレ床の拭き掃除"  class="p床（トイレ）のお掃除">トイレ床の拭き掃除</option>
-
-          <option value="床の掃き掃除"  class="pフローリングのお掃除">床の掃き掃除</option>
-          <option value="床の拭き掃除"  class="pフローリングのお掃除">床の拭き掃除</option>
-          <option value="巾木のお掃除"  class="pフローリングのお掃除">巾木のお掃除</option>
-
-          <option value="床の掃き掃除"  class="p踏板のお掃除">床の掃き掃除</option>
-          <option value="床の拭き掃除"  class="p踏板のお掃除">床の拭き掃除</option>
-          <option value="巾木のお掃除"  class="p踏板のお掃除">巾木のお掃除</option>
-
-          <option value="床の水洗い" class="p床（バルコニー）のお掃除">床の水洗い</option>
-
-          <option value="ゴミの除去" class="p排水溝のお掃除">ゴミの除去</option>
-          <option value="流水" class="p排水溝のお掃除">流水</option>
-
-          <option value="インターホンの拭き掃除" class="pサインポールのお掃除">インターホンの拭き掃除</option>
-          <option value="ポストの拭き掃除" class="pサインポールのお掃除">ポストの拭き掃除</option>
-
-          <option value="タイヤ痕の清掃" class="p土間のお掃除">タイヤ痕の除去</option>
-          <option value="錆の除去" class="p土間のお掃除">錆の除去</option>
-
-          <option value="除草作業" class="p雑草の処理">除草作業</option>
-
-          <option value="流水によるお掃除" class="p汚水桝のお掃除">流水によるお掃除</option>
-          <option value="洗浄機によるお掃除" class="p汚水桝のお掃除">洗浄機によるお掃除</option>
-
-          <option value="蜘蛛の巣の除去" class="p給湯器のお掃除">蜘蛛の巣の除去</option>
-          <option value="蜂の巣の除去" class="p給湯器のお掃除">蜂の巣の除去</option>
-          <option value="外部機器の拭き掃除" class="p給湯器のお掃除">外部機器の拭き掃除</option>
-
-          <option value="壁の水洗い" class="p外壁のお掃除">壁の水洗い</option>
-        </select>
+    <%= f.collection_select(:mentenance, MentenanceCategory.all, :name, :name,{}, {class:"form-control"}) %>
     </td>
   </div>
 </tr>
@@ -271,75 +39,9 @@
   <div class="form-group">
     <td>
     <%=f.label :description, '詳細'%>
-      <select readonly class="group1 form-control form-control-plaintext" name="description" id="lv5" disabled="disabled" onchange="myfunc()">
-        <option value="0" selected="selected">-- select --</option>
-        <option value="1"  class="p拭き掃除（屋外面）">雨のあとは汚れる</option>
-        <option value="2"  class="p拭き掃除（室内面）">結露はこまめに拭き取る換気も必要</option>
-        <option value="3"  class="pドアクローザーの拭き掃除">a1121</option>
-        <option value="4"  class="pサッシのレール掃除">ガラス障子の異音の原因になります。</option>
-        <option value="5"  class="p網戸の拭き掃除">水に濡らしたメラミンスポンジで優しく撫でるとホコリが取れます。</option>
-        <option value="6"  class="p網戸の外れ留めチェック">障子タイプの網戸限定　詳細はこちら　URL</option>
-        <option value="7"  class="p換気">靴に残った匂いが籠もってしまう</option>
-        <option value="8"  class="p拭き掃除">扉表面の取手付近は手垢がつきやすい箇所なので黒ずむ前に綺麗にする習慣を</option>
-        <option value="9"  class="p棚の掃き掃除">靴底についた砂利やホコリが溜まっていませんか？</option>
-        <option value="10" class="pブラシでの清掃">付着したばかりの汚れは水＋ブラシで案外落ちます。沈着してしまった汚れに関しては除去困難</option>
-        <option value="11" class="p掃き掃除">ホコリが溜まったままにするとドアの開け閉めでホコリが舞ってしまい体によくありません</option>
-        <option value="12" class="pレールのお掃除">濡れた雑巾を割り箸などに巻いてレール内のモヘアを綺麗にしましょう</option>
-        <option value="13" class="pシャッターボックスのお掃除">雨垂れやホコリなどが付着しやすい箇所です。強く押すと凹みます。優しく水拭きするか水で流すに留めましょう。高所なので足場には十分気を付けましょう</option>
-        <option value="14" class="pシャッター本体（スラット）のお掃除">水洗いがおすすめ。</option>
-        <option value="15" class="pフィルターのお掃除">2週間に1回フィルターを取り外し掃除機で汚れを吸い取りましょう。吸気口の場合、年に1回はフィルター交換推奨</option>
-        <option value="16" class="p扉の開閉">開閉に違和感を感じたらメンテナンスしましょうURL 扉にハンガーをかけるのは作動不良を起こす原因になるので避けましょう</option>
-        <option value="18" class="p畳の掃き掃除">畳の目に沿って柔らかいほうきを使用して下さい　リンナイ公式</option>
-        <option value="17" class="p畳の水拭き掃除">硬く絞った布を使用して下さい。洗剤は禁止。水拭き前にホコリを取り除きましょう</option>
-        <option value="18" class="p敷居のお掃除">敷居の上に輪ゴムを置いてその輪ゴムを引きずるように障子を動かすと輪ゴムと一緒にホコリが取れます</option>
-        <option value="19" class="p水垢のお掃除">クエン酸を使用すると良い</option>
-        <option value="20" class="p石鹸カスのお掃除">重曹を振りかけ1時間放置した後、水とスポンジで洗い流します</option>
-        <option value="21" class="pシンクの排水口のお掃除">キッチンハイターなど塩素系がよく取れます。他の洗剤と混ぜるなきけん</option>
-        <option value="22" class="p油汚れのお掃除">重曹を振りかけ1時間放置した後、水とスポンジで洗い流します。重曹水で拭き上げも可。電子部品やバーナーには注意</option>
-        <option value="23" class="pグリルのお掃除">パーツを取り外して重曹で洗います。電子部品やバーナーには注意</option>
-        <option value="24" class="pレンジフードフィルターのお掃除">フィルターが取り外せるタイプは重曹を使用しましょう。市販品を使用している場合はこまめに交換しましょう</option>
-        <option value="25" class="pレンジフードのお掃除">レンジフード周辺は油が付着している為、ホコリがつきやすいです。</option>
-        <option value="26" class="p排水口のお掃除">髪の毛の除去　パイプユニッシュなどの塩素系洗剤の使用</option>
-        <option value="27" class="p鏡のお掃除">クエン酸パックで半日ほど置いて吹き上げる。濡らしたままにしないのが一番</option>
-        <option value="28" class="p洗濯パンや洗濯機天面のホコリ除去">洗濯機の移動まで必要ありませんが見えている範囲はホコリを除去しましょう</option>
-        <option value="29" class="pピンク汚れのお掃除">ピンク汚れの原因は菌。塩素系カビ取り剤を活用しましょう</option>
-        <option value="30" class="p便器内のお掃除">通常は中性洗剤とブラシでお掃除ですが、黒ずみがある場合は重曹、重曹でも無理な汚れはクエン酸を活用しましょう</option>
-        <option value="31" class="p便座のお掃除">中性洗剤で拭き上げましょう。カバーは週1回の洗濯を推奨。機種により向かって右側にリフトアップのボタンやフィルターが備えてあります</option>
-        <option value="32" class="p手洗い付きタンクのお掃除">ホコリが溜まりやすいので除去しましょう。水垢がある場合クエン酸を使用すると良い</option>
-        <option value="25" class="p手洗いボウルのお掃除">ボウル内の水垢にはクエン酸を活用しましょう。周囲の壁などに跳ねた水汚れの吹き上げもお忘れなく。</option>
-        <option value="26" class="p布類の洗濯">マットやカバーなどの布類は週に1回は洗濯をしましょう</option>
-        <option value="27" class="pトイレ床の拭き掃除">お掃除シートや中性洗剤を使用して拭き上げましょう</option>
-        <option value="28" class="p床の掃き掃除">目地に沿って掃き掃除や掃除機をかけましょう。隅はホコリが溜まりやすいので注意しましょう</option>
-        <option value="29" class="p床の拭き掃除">水拭きのあとは乾拭きを行い床に水分を残さないようにしましょう</option>
-        <option value="30" class="p巾木のお掃除">ホコリが溜まりやすい箇所ですので注意しましょう</option>
-        <option value="31" class="p床の水洗い">モップなどを使用して水洗いしましょう。デッキブラシは床の表面を傷つける為避けた方が良いでしょう</option>
-        <option value="32" class="pゴミの除去">ゴミキャッチャーに髪の毛やホコリが溜まっていないか確認しましょう</option>
-        <option value="32" class="p流水">雨樋内部の清掃も兼ねてホコリや汚れを水を流しましょう</option>
-        <option value="32" class="pインターホンの拭き掃除">天面には汚れが溜まりがちです。カメラレンズ部分の拭き上げも行いましょう。洗剤を使用する場合は中性洗剤を使用しましょう。</option>
-        <option value="32" class="pポストの拭き掃除">郵便物が汚れないように外側・内側を吹き上げましょう。洗剤を使用する場合は中性洗剤を使用しましょう。</option>
-        <option value="32" class="pタイヤ痕の除去">付着したばかりのタイヤコンは水とデッキブラシで落とせることが多いです。高圧洗浄機の使用も有効です</option>
-        <option value="32" class="p錆の除去">サンドペーパーやワイヤーブラシで擦ると落とせることがあります</option>
-        <option value="32" class="p除草作業">除草剤の種類は豊富で雑草の種類によって効果が変わるので注意して下さい。砂利の下に除草シートをしいておくのも有効です。</option>
-        <option value="32" class="p流水によるお掃除">生活排水が流れる為必ず汚れます。半年に１度は水を流して滞留物を流しましょう。全箇所対象</option>
-        <option value="32" class="p洗浄機によるお掃除">高圧洗浄機などによる清掃は有効です。汚水の跳ね返りに注意しましょう</option>
-        <option value="32" class="p蜘蛛の巣の除去">蜘蛛の巣が付きにくくなるスプレーなどで対策するのが有効です</option>
-        <option value="32" class="p蜂の巣の除去">給湯器であればカバーの裏側、シャッターボックスであればボックス裏側など空間に巣があることがあります。無理にご自身で駆除しようとせず業者などに依頼しましょう</option>
-        <option value="32" class="p外部機器の拭き掃除">エアコンの室外機や給湯器など風雨に晒されている面は表面が劣化している可能性があります。拭き掃除などは目立たない箇所で試してからにしましょう。</option>
-        <option value="32" class="p壁の水洗い">ホース水をかけてスポンジなどで汚れを落とすのが良いでしょう。壁内部に浸水することはありません。</option>
-        
-      </select>
+    <%= f.collection_select(:description, DescriptionCategory.all, :name, :name,{}, {class:"form-control"}) %>
     </td>
   </div>
-
-  <script>
-        function myfunc() {
-        
-            var index = document.getElementById("lv5").selectedIndex;
-            var value = document.getElementById("lv5").value;
-            
-            console.log("You have selected" + value+ ", with index "+index);
-        }
-    </script>
 
   <div class="form-group">
     <%= f.label :deadline,  '目安の時期' %>
