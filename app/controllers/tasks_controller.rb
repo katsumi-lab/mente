@@ -50,7 +50,7 @@ class TasksController < ApplicationController
   def destroy
     task =Task.find(params[:id])
     task.destroy
-    redirect_to tasks_path, notice: "「#{@task.floor}の#{@task.room}の#{@task.item}」を削除しました。"
+    redirect_to tasks_path, notice: "削除しました。"
   end
 
   private

@@ -1,60 +1,64 @@
 <%= render "shared/header" %>
 
-<h1>個別詳細</h1>
+<div class="container">
 
-<div class="nav justify-content-end">
-  <%= link_to '一覧に戻る', tasks_path, class:'nav-link' %>
+  <h1>個別詳細</h1>
+
+  <div class="nav justify-content-end">
+    <%= link_to '一覧に戻る', tasks_path, class:'nav-link' %>
+  </div>
+
+
+  <table class="table table-hover">
+    <tbody>
+      <tr>
+        <th><%= Task.human_attribute_name(:id) %></th>
+        <td><%= @task.id %></td>
+      </tr>
+      <tr>
+        <th> <%= Task.human_attribute_name(:floor) %></th>
+        <td><%= @task.floor %></td>
+      </tr>
+      <tr>
+        <th><%= Task.human_attribute_name(:room) %></th>
+        <td><%= @task.room %></td>
+      </tr>
+      <tr>
+        <th><%= Task.human_attribute_name(:item) %></th>
+        <td><%= @task.item %></td>
+      </tr>
+      <tr>
+        <th><%= Task.human_attribute_name(:mentenance) %></th>
+        <td><%= simple_format(h(@task.mentenance),{}, sanitize: false, wrapper_tag: "div")%></td>
+      </tr>
+      <tr>
+        <th><%= Task.human_attribute_name(:description) %></th>
+        <td><%= simple_format(h(@task.description),{}, sanitize: false, wrapper_tag: "div")%></td>
+      </tr>
+      <tr>
+        <th><%= Task.human_attribute_name(:created_at) %></th>
+        <td><%= l @task.created_at%></td>
+      </tr>
+      <tr>
+        <th><%= Task.human_attribute_name(:updated_at) %></th>
+        <td><%= l @task.updated_at%></td>
+      </tr>
+      <tr>
+        <th><%= Task.human_attribute_name(:deadline) %></th>
+        <td><%= l @task.deadline%></td>
+      </tr>
+
+    </tbody>
+    
+  </table>
+  <%= link_to '編集', edit_task_path, class:'btn btn-primary mr-3'%>
+  <%= link_to '削除', @task, method: :delete, data: {confirm: "「#{@task.floor}の#{@task.room}の#{@task.item}」を削除します。よろしいですか？"},class: 'btn btn-danger'%>
+  <br>
+  <br>
+  <div class="d-flex justify-content-center">
+  <%= link_to '続けて登録する場合はこちら', new_task_path, class:'btn btn-outline-secondary '%>
+  </div>
+  <br>
+
 </div>
-
-
-<table class="table table-hover">
-  <tbody>
-    <tr>
-      <th><%= Task.human_attribute_name(:id) %></th>
-      <td><%= @task.id %></td>
-    </tr>
-    <tr>
-      <th> <%= Task.human_attribute_name(:floor) %></th>
-      <td><%= @task.floor %></td>
-    </tr>
-    <tr>
-      <th><%= Task.human_attribute_name(:room) %></th>
-      <td><%= @task.room %></td>
-    </tr>
-    <tr>
-      <th><%= Task.human_attribute_name(:item) %></th>
-      <td><%= @task.item %></td>
-    </tr>
-    <tr>
-      <th><%= Task.human_attribute_name(:mentenance) %></th>
-      <td><%= simple_format(h(@task.mentenance),{}, sanitize: false, wrapper_tag: "div")%></td>
-    </tr>
-    <tr>
-      <th><%= Task.human_attribute_name(:description) %></th>
-      <td><%= simple_format(h(@task.description),{}, sanitize: false, wrapper_tag: "div")%></td>
-    </tr>
-    <tr>
-      <th><%= Task.human_attribute_name(:created_at) %></th>
-      <td><%= l @task.created_at%></td>
-    </tr>
-    <tr>
-      <th><%= Task.human_attribute_name(:updated_at) %></th>
-      <td><%= l @task.updated_at%></td>
-    </tr>
-    <tr>
-      <th><%= Task.human_attribute_name(:deadline) %></th>
-      <td><%= l @task.deadline%></td>
-    </tr>
-
-  </tbody>
-  
-</table>
-<%= link_to '編集', edit_task_path, class:'btn btn-primary mr-3'%>
-<%= link_to '削除', @task, method: :delete, data: {confirm: "「#{@task.floor}の#{@task.room}の#{@task.item}」を削除します。よろしいですか？"},class: 'btn btn-danger'%>
-<br>
-<br>
-<div class="d-flex justify-content-center">
-<%= link_to '続けて登録する場合はこちら', new_task_path, class:'btn btn-outline-secondary '%>
-</div>
-<br>
 <%= render "shared/footer" %>
