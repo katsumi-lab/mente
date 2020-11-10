@@ -12,6 +12,7 @@
       <li>お手入れ： <%= @task.mentenance %></li>
       <li>詳しい説明： <%= simple_format(@task.description) %></li>
       <li>お手入れの目安： <%= @task.deadline %></li>
+      <%= link_to '詳細画面へ', task_path(task), class:"btn btn-primary btn-sm" %>
     </ul>
   </body>
 </html>
