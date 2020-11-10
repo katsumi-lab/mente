@@ -66,3 +66,6 @@ gem 'momentjs-rails'
 gem 'bootstrap4-datetime-picker-rails'
 gem 'active_hash'
 gem 'sidekiq'
+group :production do
+  gem 'rails_12factor'
+end
