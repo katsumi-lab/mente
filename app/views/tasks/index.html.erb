@@ -1,6 +1,6 @@
 <html>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%# <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -15,33 +15,24 @@
         <a class="nav-link" href="/users/sign_in">ログイン</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/users/edit">ユーザー情報編集</a>
+        <a class="nav-link" href=>ユーザー情報編集</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/users/sign_out">ログアウト</a>
+        <a class="nav-link" href=>ログアウト</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
+      
     </ul>
     </div>
-  </nav>
+  </nav> %>
 
   <div class="jumbotron">
-    <!-- display-5は見出しのサイズ -->
-    <h5><%= "こんにちは！#{current_user.last_name}さん"%></h5>
     <!-- leadは文章の文字サイズを小さくする -->
-    <p class="lead"><%= "#{current_user.last_name} #{current_user.first_name} #{current_user.last_name_kana} #{current_user.first_name_kana}様邸 お住まいになられて◯年△ヶ月経ちました。快適にお過ごしでしょうか？長く快適に暮らす為には日頃のお手入れが非常に重要となります。忘れそうなお掃除はお手入れ登録しましょう！"%></p>
-    <!-- my＝marginのy軸 -->
+    <p><%= "#{current_user.last_name} #{current_user.first_name} #{current_user.last_name_kana} #{current_user.first_name_kana}様邸"%> </p>
+    <br>
+    <p class="lead"><%="お住まいになられて◯年△ヶ月経ちました。快適にお過ごしでしょうか？長く快適に暮らす為には日頃のお手入れが非常に重要となります。忘れそうなお掃除はお手入れ登録しましょう！" %></p>
+  
     <hr class="my-4">
-    <p>ご不明点はchatobotをご用意しております。</p>
+    <p>早速お手入れ情報を登録しましょう</p>
     <a class="btn btn-primary btn-md" href="/tasks/new" role="button">新規登録</a>
   </div> 
 
@@ -63,24 +54,25 @@
     <%end%>
   </div> 
 
-  <div class="row d-flex justify-content-around">
+  <div class="container flex-column align-items-center">
     <% @tasks.each do |task| %>
-      
-      <div class="card" style="width: 18rem;">
-      <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em"><%= link_to '詳細画面へ', task_path(task), class:"btn btn-primary btn-sm" %>
-          <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="customSwitch1"></text></svg>
-          
-        <div class="card-body">
-          <div class="text-muted deadline_style(task)"><%=deadline_count(task)%></div>
-          <h5 class="card-title"><%=task.floor%></h5>
-          <p class="card-text"><%= task.room%></p>
-          <p class="card-text"><%=task.item%></p>
-          
-          <label class="mt-2 custom-control-label card-text font-weight-light" for="customSwitch1">完了</label>
-          </div>
-        </div>
+
+    <div class="card text-center">
+      <div class="card-header">
+        <%=task.floor%>
+        <%= task.room%>
       </div>
+      <div class="card-body">
+        <h5 class="card-title"><%=task.item%><%=task.mentenance%></h5>
+        <p class="card-text"><%=task.description%></p>
+        <%= link_to '詳細画面へ', task_path(task), class:"btn btn-primary btn-sm" %>
+      </div>
+      <div class="card-footer text-muted">
+        <%=deadline_count(task)%>
+      </div>
+    </div>
+    <br>
+      
     <% end %>
   </div>
   

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mente</title>
+    <title>お手入れマガジン</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -21,8 +21,25 @@
   <body>
   <script src="script.js"></script>
   
-    <div class="app-title navbar navbar-expand-md navbar-light bg-light ">
-    <p class ="navbar-brand font-weight-bold">TO do</p>
+  <div class="app-title navbar navbar-expand-md navbar-light bg-light d-flex">
+    <h1 class ="font-weight-bold d-flex justify-content-center d-flex align-items-center">mente</h1>
+      <ul>
+      <% if user_signed_in?%>
+        <li class="navbar nav-item dropdown d-flex justify-content-end">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= "こんにちは！#{current_user.last_name}さん"%>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">ユーザー情報詳細</a>
+            <a class="dropdown-item" href="/users/edit">ユーザー情報編集</a>
+            <a class="dropdown-item" href="/users/sign_out">ログアウト</a>
+          </div>
+        </li>
+        <%else%>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+        <%end%>
+      </ul>
     </div>
 
     <div class="container">
@@ -34,7 +51,8 @@
     <%= yield %>
     </div>
     </div>
-
+  <br>
+  <br>
   <div class="app-title navbar navbar-expand-md navbar-light bg-light navbar-brand d-flex align-items-center justify-content ">
   <%= link_to 'TOPへ戻る', tasks_path, class: "btn btn-secondary btn-sm " %>
   </div>
