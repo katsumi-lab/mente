@@ -63,24 +63,25 @@
     <%end%>
   </div> 
 
-  <div class="row d-flex justify-content-around">
+  <div class="container flex-column align-items-center">
     <% @tasks.each do |task| %>
-      
-      <div class="card" style="width: 18rem;">
-      <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em"><%= link_to '詳細画面へ', task_path(task), class:"btn btn-primary btn-sm" %>
-          <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="customSwitch1"></text></svg>
-          
-        <div class="card-body">
-          <div class="text-muted deadline_style(task)"><%=deadline_count(task)%></div>
-          <h5 class="card-title"><%=task.floor%></h5>
-          <p class="card-text"><%= task.room%></p>
-          <p class="card-text"><%=task.item%></p>
-          
-          <label class="mt-2 custom-control-label card-text font-weight-light" for="customSwitch1">完了</label>
-          </div>
-        </div>
+
+    <div class="card text-center">
+      <div class="card-header">
+        <%=task.floor%>
+        <%= task.room%>
       </div>
+      <div class="card-body">
+        <h5 class="card-title"><%=task.item%><%=task.mentenance%></h5>
+        <p class="card-text"><%=task.description%></p>
+        <%= link_to '詳細画面へ', task_path(task), class:"btn btn-primary btn-sm" %>
+      </div>
+      <div class="card-footer text-muted">
+        <%=deadline_count(task)%>
+      </div>
+    </div>
+    <br>
+      
     <% end %>
   </div>
   
