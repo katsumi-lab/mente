@@ -39,7 +39,8 @@ https://myhome-mente.herokuapp.com/
  - メールマガジンの配信機能
 
 ## データベース設計
-mente.drawio.png
+ER図
+[![Image from Gyazo](https://i.gyazo.com/c3c47beafe7f1c3986f7d7a8631933a4.png)](https://gyazo.com/c3c47beafe7f1c3986f7d7a8631933a4)
 
 ## ローカルでの動作方法
  - Gitのcloneコマンドを入力して下さい。
