@@ -10,12 +10,12 @@ class User < ApplicationRecord
 
   with_options presence: true do
     with_options format: { with: /^[ぁ-んァ-ン一-龥]/, multiline: true } do
-      validates :family_name
+      validates :last_name
       validates :first_name
     end
 
     with_options format: { with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/, multiline: true } do
-      validates :family_name_kana
+      validates :last_name_kana
       validates :first_name_kana
     end
   end
