@@ -69,3 +69,4 @@ gem 'sidekiq'
 group :production do
   gem 'rails_12factor'
 end
+gem 'factory_bot_rails'
