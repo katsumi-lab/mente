@@ -23,3 +23,6 @@
 .dl-style3 {
   background: linear-gradient(transparent 70%, #f3f3f3 70%);
 }
+.indispensable {
+  color: red;
+}

@@ -2,18 +2,28 @@
 <body>
   <%= render "shared/header" %>
 
-  <div class="container">
+  <div class="container col-8">
     <div class="jumbotron">
-      <!-- leadは文章の文字サイズを小さくする -->
-      <p class="text-center"><%= "#{current_user.last_name_kana} #{current_user.first_name_kana}"%></p>
-      <h2 class="text-center font-weight-bold"><%= "#{current_user.last_name} #{current_user.first_name} 様邸"%> </h2>
-      <br>
-      <p class="lead"><%="お住まいになられて◯年△ヶ月経ちました。快適にお過ごしでしょうか？長く快適に暮らす為には日頃のお手入れが非常に重要となります。忘れそうなお掃除はお手入れ登録しましょう！" %></p>
+      <% if user_signed_in? %>
+        <p class="text-center"><%= "#{current_user.last_name_kana} #{current_user.first_name_kana}"%></p>
+        <h2 class="text-center font-weight-bold"><%= "#{current_user.last_name} #{current_user.first_name} 様邸"%> </h2>
+        <br>
+        <p class="lead"><%="お住まいになられて◯年△ヶ月経ちました。快適にお過ごしでしょうか？長く快適に暮らす為には日頃のお手入れが非常に重要となります。忘れそうなお掃除はお手入れ登録しましょう！" %></p>
+      <% else %>
+        <h2 class="text-center font-weight-bold"><%= "ゲストユーザー様" %> </h2>
+        <br>
+        <p class="lead text-center"><%="本日は貴重なお時間を頂き誠にありがとうございます。"%></p>
+      <% end %><br><br>
     
-      <hr class="my-4">
-      <p>早速お手入れ情報を登録しましょう</p>
-      <a class="btn btn-primary btn-md" href="/tasks/new" role="button">新規登録</a>
-    </div> 
+    <div class="row d-flex justify-content-between">
+      <div>
+        <p>早速お手入れタスク情報を登録しましょう</p>
+      </div>
+      <div>
+        <a class="btn btn-primary btn-md" href="/tasks/new" role="button">新規登録</a>
+      </div>
+    </div>
+  </div> 
 
     <div class="jumbotron">
       <div class="d-flex justify-content-center">
