@@ -1,7 +1,7 @@
 <div class="app-title navbar navbar-expand-md navbar-light bg-light d-flex">
   
   <div class="flex-grow-1">
-    <h1 class ="font-weight-bold text-monospace"><%= link_to 'mente', root_path, class:"text-dark"%></h1>
+    <h1 class ="font-weight-bold text-monospace"><%= link_to 'mente', root_path, class:"text-dark nav-link active"%></h1>
   </div>
 
   <div>
@@ -18,8 +18,10 @@
           </div>
         </li>
       <%else%>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+        <div class="nav d-flex flex-row-reverse mb-3">
+            <li class="p-2 bd-highlight font-weight-bold" ><%= link_to 'ログイン', new_user_session_path, class: "login nav-link active" %></li>
+            <li class="p-2 bd-highlight font-weight-bold"><%= link_to '新規登録', new_user_registration_path, class: "sign-up nav-link active" %></li>
+        </div>
       <%end%>
     </ul>
   </div>
