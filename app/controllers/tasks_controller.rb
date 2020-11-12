@@ -53,6 +53,15 @@ class TasksController < ApplicationController
     redirect_to tasks_path, notice: "削除しました。"
   end
 
+  # ゲスト用ログイン
+  def new_guest
+    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
   private
   def search_params
     params.require(:q).permit!
