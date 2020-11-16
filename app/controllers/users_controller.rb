@@ -1,24 +1,15 @@
 class UsersController < ApplicationController
-  # resources :users, only: [:edit, :update]
-  
-  # def create
-  #   @user = User.new(user_params)
-  #   if @user.save
-  #     redirect_to action: :index
-  #   else
-  #     render :new
-  #   end
-  # end
-  # def create
-  #   @user = User.create(user_params)
-  # end
-  
-  def edit
+  def show
+    @last_name = current_user.last_name
+    @first_name = current_user.first_name
+    @last_name_kana = current_user.last_name_kana
+    @first_name_kana = current_user.first_name_kana
+    @email = current_user.email
+    @tasks = Task.where(user_id: current_user.id)
+    @count = @tasks.count
   end
 
-  # private
-  # def user_params
-  #   params.require(:user).permit(last_name: last_name, first_name:first_name)
-  # end
+  def edit
+  end
   
 end
