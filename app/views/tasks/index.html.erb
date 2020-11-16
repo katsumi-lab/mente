@@ -3,60 +3,63 @@
   <%= render "shared/header" %>
 
   <div class="container col-8">
-    <div class="jumbotron">
+    
       <% if user_signed_in? %>
         <p class="text-center"><%= "#{current_user.last_name_kana} #{current_user.first_name_kana}"%></p>
         <h2 class="text-center font-weight-bold"><%= "#{current_user.last_name} #{current_user.first_name} 様邸"%> </h2>
-        <br>
-        <p class="lead"><%="お住まいになられて◯年△ヶ月経ちました。快適にお過ごしでしょうか？長く快適に暮らす為には日頃のお手入れが非常に重要となります。忘れそうなお掃除はお手入れ登録しましょう！" %></p>
+        <% if @tasks.present? %>
+          <div class="shadow p-3 mb-5 bg-white rounded d-flex justify-content-center">
+            <div>ただいまのお手入れタスクの数は</div>
+            <div><%= @task.count %></div>
+            <div>件です</div>
+          </div><br>
+        <%else%>
+          <div class="shadow p-3 mb-5 bg-white rounded d-flex justify-content-center">
+            <div>登録されているタスクはありません</div>
+          </div>
+        <%end%>
       <% else %>
         <h2 class="text-center font-weight-bold"><%= "ゲストユーザー様" %> </h2>
         <br>
-        <p class="lead text-center"><%="本日は貴重なお時間を頂き誠にありがとうございます。"%></p>
+        <p class="lead text-center"><%="本日は貴重なお時間を頂き誠にありがとうございます。"%></p><br>
       <% end %><br><br>
     
-    <div class="row d-flex justify-content-between">
-      <div>
-        <p>早速お手入れタスク情報を登録しましょう</p>
-      </div>
-      <div>
-        <a class="btn btn-primary btn-md" href="/tasks/new" role="button">新規登録</a>
-      </div>
-    </div>
-  </div> 
-
-    <div class="jumbotron">
+      
+    <div class="jumbotron shadow p-3 mb-5 bg-white rounded">
       <div class="d-flex justify-content-center">
-      <h2 class="font-weight-bold">お手入れタスク一覧</h2>
+      <h3 class="font-weight-bold">お手入れタスク一覧</h3>
       </div>
 
       <div class="d-flex flex-row-reverse">
-        <% if @task%>
           <%= link_to '全て', tasks_path(:show=>'all'), class: 'btn btn-primary btn-sm ml-2'%>
-          <%= link_to '未完了', tasks_path, class: 'btn btn-primary btn-sm ml-1'%>
-        <% else %>
-          <%= link_to '全て', tasks_path(:show=>'all'), class: 'btn btn-outline-primary btn-sm ml-2'%>
-          <%= link_to '未完了', tasks_path, class: 'btn btn-primary btn-sm ml-1'%>
-        <%end%></br>
+          <%= link_to '未完了', tasks_path, class: 'btn btn-primary btn-sm ml-1'%><br>
       </div>
     
     <div class="container flex-column align-items-center">
       <% @tasks.each do |task| %>
-      <div class="card text-center">
+      <tr id="task-#{task.id}">
+      <div class="card text-center" data="<%= task.id %>">
         <div class="card-header">
-          <%=task.floor%>
-          <%= task.room%>
+          <td><%=task.floor%></td>
+          <td><%= task.room%></td>
         </div>
+
         <div class="card-body">
-          <h5 class="card-title"><%=task.item%><%=task.mentenance%></h5>
-          <p class=><%=task.description%></p>
-          <%= link_to '詳細画面へ', task_path(task), class:"btn btn-primary btn-sm" %>
+          <td><h5 class="card-title"><%=task.item%><%=task.mentenance%></h5></td>
+          <td><p class=><%=task.description%></p></td>
+          <td>
+            <%= link_to '詳細画面へ', task_path(task), class:"btn btn-primary btn-sm" %><br><br>
+            <%= link_to '削除する', task, method: :delete,remote: true, data:{ confirm: "タスクを削除します。よろしいですか？", task_id: task.id}, class: 'btn btn-danger' %>
+          </td>
         </div>
+        
         <div class="card-footer font-weight-bold">
           <%=deadline_count(task)%>
         </div>
       </div>
       <br>
+      </tr>
+
       <% end %>
     </div>
     
@@ -69,6 +72,12 @@
     </div>
   </div>
 
+  <div class="row d-flex justify-content-center">
+    <div>
+      <a class="btn btn-lg" href="/tasks/new" role="button">⏩早速お手入情報の登録はこちらから⏪</a>
+    </div><br>
+  </div>
+  
     <%= render "shared/footer" %>
   </body>
 </html>
