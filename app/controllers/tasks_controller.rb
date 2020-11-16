@@ -5,6 +5,7 @@ class TasksController < ApplicationController
     @tasks = Task.page(params[:page]).per(3)
     @q = Task.ransack(params[:q])
     @results = @q.result(distinct: true)
+    @task = Task.where(user_id: current_user.id)
   end
 
   def search
@@ -26,12 +27,11 @@ class TasksController < ApplicationController
   end
   def create
     @task = Task.new(task_params)
-
+    @deadline = @task.deadline
     # タスクが登録されたらEmailが送信される条件分岐。
     if @task.save
-
       TaskMailer.creation_email(@task).deliver_now
-      MagazineJob.set(wait_until: @task.deadline.to_s).perform_later
+      MagazineJob.set(wait_until: @deadline.noon).perform_later
       redirect_to @task, notice: "「#{@task.floor}の#{@task.room}の#{@task.item}」を登録しました。"
     else
       render :new
@@ -48,18 +48,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    task =Task.find(params[:id])
+    # task =Task.find(params[:id])
     task.destroy
-    redirect_to tasks_path, notice: "削除しました。"
-  end
-
-  # ゲスト用ログイン
-  def new_guest
-    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
-      user.password = SecureRandom.urlsafe_base64
-    end
-    sign_in user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    head :no_content
   end
 
   private
