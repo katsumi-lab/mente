@@ -1,0 +1,53 @@
+<%= render "shared/header" %>
+
+<div class="container col-8">
+  <div class="jumbotron">
+    <h2 class="d-flex justify-content-center">ユーザー情報</h2>
+    <br>
+    <div>
+      <p>所有者様名</p>
+      <div class="shadow p-3 mb-5 bg-white rounded">
+      <%= @last_name %>
+      <%= @first_name %>
+      </div>
+    </div>
+
+    <div>
+      <p>所有者様名（かな）</p>
+      <div class="shadow p-3 mb-5 bg-white rounded">
+      <%= @last_name_kana %>
+      <%= @first_name_kana%>
+      </div>
+    </div>
+
+    <div>
+      <p>E-mailアドレス</p>
+      <div class="shadow p-3 mb-5 bg-white rounded">
+      <%= @email%>
+      </div>
+    </div>
+
+    <div>
+      <p>お手入れの数は
+        <div class="shadow p-3 mb-5 bg-white rounded d-flex justify-content-center">
+          <div><%= @count %></div>
+          <div>件です</div>
+        </div>
+      </p><br>
+    </div>
+
+    <div class="d-flex justify-content-between">
+
+      <div>
+        <%= link_to 'お手入れ新規登録ページへ', "/tasks/new", class: 'btn btn-primary btn-sm ml-2'%>
+      </div>
+      <div>
+        <%= link_to 'ユーザー情報編集ページへ', "/users/edit", class: 'btn btn-primary btn-sm ml-2'%>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+
+<%= render "shared/footer" %>
