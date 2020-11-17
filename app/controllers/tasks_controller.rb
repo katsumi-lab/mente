@@ -26,7 +26,6 @@ class TasksController < ApplicationController
     @task = Task.new
   end
   def create
-    binding.pry
     @task = Task.new(task_params)
     @task.valid?
     @deadline = @task.deadline
