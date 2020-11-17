@@ -31,25 +31,13 @@
     <div class="form-group">
       <td>
       <%=f.label :mentenance, 'お手入れ'%>
-      <%= f.collection_select(:mentenance, MentenanceCategory.all, :name, :name,{selected: @task.mentenance}, {class:"form-control",id: "mentenance_category"}) %>
-      </td>
-    </div>
-
-    <div class="form-group">
-      <td>
-      <%=f.label :description, '詳細'%>
-      <%= f.collection_select(:description, DescriptionCategory.all, :name, :name,{selected: @task.description}, {class:"form-control", id: "description_category"}) %>
+      <%= f.collection_select(:mentenance, MentenanceCategory.all, :name, :id,{selected: @task.mentenance}, {class:"form-control",id: "mentenance_category"}) %>
       </td>
     </div>
 
     <div class="form-group">
       <%= f.label :deadline,  '目安の時期' %>
       <%= f.date_field :deadline, class:"form-control ", id:"date" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :ステータス %>
-      <%= f.select :completed,[['未完了',0],['完了',1]],{}, class: 'form-control', id: 'task_completed'%>
     </div>
 
     <div class="d-flex justify-content-between">

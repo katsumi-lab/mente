@@ -12,7 +12,7 @@
             <div>ただいまのお手入れタスクの数は</div>
             <div><%= @task.count %></div>
             <div>件です</div>
-          </div><br>
+          </div>
         <%else%>
           <div class="shadow p-3 mb-5 bg-white rounded d-flex justify-content-center">
             <div>登録されているタスクはありません</div>
@@ -22,7 +22,13 @@
         <h2 class="text-center font-weight-bold"><%= "ゲストユーザー様" %> </h2>
         <br>
         <p class="lead text-center"><%="本日は貴重なお時間を頂き誠にありがとうございます。"%></p><br>
-      <% end %><br><br>
+      <% end %>
+
+    <div class="row d-flex justify-content-center">
+      <div>
+        <a class="btn btn-outline-info btn-lg" href="/tasks/new" role="button">お手入情報の登録はこちらから</a>
+      </div><br><br><br><br>
+    </div>
     
       
     <div class="jumbotron shadow p-3 mb-5 bg-white rounded">
@@ -30,11 +36,6 @@
       <h3 class="font-weight-bold">お手入れタスク一覧</h3>
       </div>
 
-      <div class="d-flex flex-row-reverse">
-          <%= link_to '全て', tasks_path(:show=>'all'), class: 'btn btn-primary btn-sm ml-2'%>
-          <%= link_to '未完了', tasks_path, class: 'btn btn-primary btn-sm ml-1'%><br>
-      </div>
-    
     <div class="container flex-column align-items-center">
       <% @tasks.each do |task| %>
       <tr id="task-#{task.id}">
@@ -45,11 +46,10 @@
         </div>
 
         <div class="card-body">
-          <td><h5 class="card-title"><%=task.item%><%=task.mentenance%></h5></td>
-          <td><p class=><%=task.description%></p></td>
+          <td><h5 class="card-title"><%=task.item%></h5></td>
+          <td><p class=><%=task.mentenance%></p></td>
           <td>
-            <%= link_to '詳細画面へ', task_path(task), class:"btn btn-primary btn-sm" %><br><br>
-            <%= link_to '削除する', task, method: :delete,remote: true, data:{ confirm: "タスクを削除します。よろしいですか？", task_id: task.id}, class: 'btn btn-danger' %>
+            <%= link_to '詳細画面へ', task_path(task), class:"btn btn-info btn-sm" %><br><br>
           </td>
         </div>
         
@@ -72,12 +72,6 @@
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center">
-    <div>
-      <a class="btn btn-lg" href="/tasks/new" role="button">⏩早速お手入情報の登録はこちらから⏪</a>
-    </div><br>
-  </div>
-  
     <%= render "shared/footer" %>
   </body>
 </html>
