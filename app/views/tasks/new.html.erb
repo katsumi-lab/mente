@@ -13,7 +13,7 @@
       <td>
       <%=f.label :floor, '場所'%>
       <span class="indispensable">必須</span>
-      <%= f.collection_select(:floor, FloorCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control", id: "floor_category"}) %>
+      <%= f.collection_select(:floor_id, FloorCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control", id: "floor_category"}) %>
       </td>
     </div>
 
@@ -21,7 +21,7 @@
       <td>
       <%=f.label :room, '部屋'%>
       <span class="indispensable">必須</span>
-      <%= f.collection_select(:room, RoomCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control", id: "room_category"}) %>
+      <%= f.collection_select(:room_id, RoomCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control", id: "room_category"}) %>
       </td>
     </div>
 
@@ -29,7 +29,7 @@
       <td>
       <%=f.label :item, '項目'%>
       <span class="indispensable">必須</span>
-      <%= f.collection_select(:item, ItemCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control", id: "item_category"}) %>
+      <%= f.collection_select(:item_id, ItemCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control", id: "item_category"}) %>
       </td>
     </div>
 
@@ -37,7 +37,7 @@
       <td>
       <%=f.label :mentenance, 'お手入れ'%>
       <span class="indispensable">必須</span>
-      <%= f.collection_select(:mentenance, MentenanceCategory.all, :name, :id,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control",id: "mentenance_category"}) %>
+      <%= f.collection_select(:mentenance_id, MentenanceCategory.all, :name, :id,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control",id: "mentenance_category"}) %>
       </td>
     </div>
 
