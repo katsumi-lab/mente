@@ -1,3 +1,5 @@
+ActiveSupport::Deprecation.silenced = true if Rails.version == '6.0.2'
+
 require_relative 'boot'
 require "date"
 require 'rails/all'
@@ -18,5 +20,3 @@ module Mente
     # the framework and any gems in your application.
   end
 end
-
-ActiveSupport::Deprecation.silenced = true if Rails.version == '6.0.2'
