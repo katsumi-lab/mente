@@ -26,7 +26,9 @@ class TasksController < ApplicationController
     @task = Task.new
   end
   def create
+    binding.pry
     @task = Task.new(task_params)
+    @task.valid?
     @deadline = @task.deadline
     # タスクが登録されたらEmailが送信される条件分岐。
     if @task.save
