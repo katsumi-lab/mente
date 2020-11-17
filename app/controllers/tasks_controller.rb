@@ -30,8 +30,9 @@ class TasksController < ApplicationController
     @deadline = @task.deadline
     # タスクが登録されたらEmailが送信される条件分岐。
     if @task.save
-      TaskMailer.creation_email(@task).deliver_now
-      MagazineJob.set(wait_until: @deadline.noon).perform_later
+      TaskMailer.creation_email(@task).deliver_later(wait_until: @deadline.noon)
+      # TaskMailer.creation_email(@task).deliver_now
+      # MagazineJob.set(wait_until: @deadline.noon).perform_later
       redirect_to @task, notice: "「#{@task.floor}の#{@task.room}の#{@task.item}」を登録しました。"
     else
       render :new
