@@ -73,4 +73,3 @@ group :production do
 end
 gem 'faker'
 gem 'mailcatcher'
-gem 'sqlite3'
