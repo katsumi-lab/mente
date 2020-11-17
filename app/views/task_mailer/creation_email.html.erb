@@ -6,10 +6,10 @@
   <body>
     <h1><%= "以下のタスクを作成しました"%></h1>
     <ul>
-      <li>場所： <%= @task.floor %></li>
-      <li>部屋： <%= @task.room %></li>
-      <li>項目： <%= @task.item %></li>
-      <li>お手入れ： <%= @task.mentenance %></li>
+      <li>場所： <%= @task.floor_id%></li>
+      <li>部屋： <%= @task.room_id%></li>
+      <li>項目： <%= @task.item_id%></li>
+      <li>お手入れ： <%= @task.mentenance_id %></li>
       <li>お手入れの目安： <%= @task.deadline %></li>
     </ul>
     <a href="https://myhome-mente.herokuapp.com/">ログインはこちらから</a>
