@@ -1,4 +1,4 @@
-class DescriptionCategory < ActiveHash::Base
+class MentenanceCategory < ActiveHash::Base
   self.data = [
     { id:'玄関ドアの拭き掃除について（屋外面）'  , name:'水気を残さないように硬く絞った布で吹き上げましょう' },
     { id:'玄関ドアの拭き掃除について（室内面）'  , name:'冬場は結露をこまめに拭き取りましょう。１年通して定期的に換気を行いましょう。' },
