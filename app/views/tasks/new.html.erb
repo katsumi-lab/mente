@@ -37,16 +37,16 @@
       <td>
       <%=f.label :mentenance, 'お手入れ'%>
       <span class="indispensable">必須</span>
-      <%= f.collection_select(:mentenance, MentenanceCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control",id: "mentenance_category"}) %>
+      <%= f.collection_select(:mentenance, MentenanceCategory.all, :name, :id,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control",id: "mentenance_category"}) %>
       </td>
     </div>
 
-    <div class="form-group">
+    <%# <div class="form-group">
       <td>
       <%=f.label :description, '詳細'%>
-      <%= f.collection_select(:description, DescriptionCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control", id: "description_category"}) %>
-      </td>
-    </div>
+      <%# <%= f.collection_select(:description, DescriptionCategory.all, :name, :name,{include_blank: "▼---選択して下さい---▼", prompt: false}, {class:"form-control", id: "description_category"}) %>
+      <%# </td>
+    </div>  %> 
 
     <div class="form-group">
       <%= f.label :deadline,  '目安の時期' %>
@@ -54,9 +54,9 @@
       <%= f.date_field :deadline, class:"form-control ", id:"date" %>
     </div>
 
-    <div class="form-group">
+    <%# <div class="form-group">
       <%= f.hidden_field :completed,:value => 0, id: 'task_completed'%>
-    </div>
+    </div> 
 
     <div class="d-flex justify-content-end">
       <input type = "reset" value="clear" class="btn btn-outline-secondary">
