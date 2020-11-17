@@ -17,19 +17,19 @@
       </tr>
       <tr>
         <th> <%= Task.human_attribute_name(:floor) %></th>
-        <td><%= @task.floor %></td>
+        <td><%= @task.floor_id %></td>
       </tr>
       <tr>
         <th><%= Task.human_attribute_name(:room) %></th>
-        <td><%= @task.room %></td>
+        <td><%= @task.room_id %></td>
       </tr>
       <tr>
         <th><%= Task.human_attribute_name(:item) %></th>
-        <td><%= @task.item %></td>
+        <td><%= @task.item _id%></td>
       </tr>
       <tr>
         <th><%= Task.human_attribute_name(:mentenance) %></th>
-        <td><%= simple_format(h(@task.mentenance),{}, sanitize: false, wrapper_tag: "div")%></td>
+        <td><%= simple_format(h(@task.mentenance_id),{}, sanitize: false, wrapper_tag: "div")%></td>
       </tr>
       <tr>
         <th><%= Task.human_attribute_name(:created_at) %></th>
