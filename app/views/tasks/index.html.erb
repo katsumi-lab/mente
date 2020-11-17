@@ -22,7 +22,14 @@
         <h2 class="text-center font-weight-bold"><%= "ゲストユーザー様" %> </h2>
         <br>
         <p class="lead text-center"><%="本日は貴重なお時間を頂き誠にありがとうございます。"%></p><br>
-      <% end %><br><br>
+      <% end %><br>
+
+    <div class="row d-flex justify-content-center">
+      <div>
+        <a class='btn btn-primary btn-lg btn-block' href="/tasks/new" role="button">お手入情報の登録はこちらから</a>
+      </div><br><br>
+    </div>
+  
     
       
     <div class="jumbotron shadow p-3 mb-5 bg-white rounded">
@@ -72,12 +79,6 @@
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center">
-    <div>
-      <a class="btn btn-lg" href="/tasks/new" role="button">⏩早速お手入情報の登録はこちらから⏪</a>
-    </div><br>
-  </div>
-  
     <%= render "shared/footer" %>
   </body>
 </html>
