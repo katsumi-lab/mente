@@ -29,7 +29,6 @@
         <a class='btn btn-primary btn-lg btn-block' href="/tasks/new" role="button">お手入情報の登録はこちらから</a>
       </div><br><br>
     </div>
-  
     
       
     <div class="jumbotron shadow p-3 mb-5 bg-white rounded">
@@ -37,11 +36,6 @@
       <h3 class="font-weight-bold">お手入れタスク一覧</h3>
       </div>
 
-      <div class="d-flex flex-row-reverse">
-          <%= link_to '全て', tasks_path(:show=>'all'), class: 'btn btn-primary btn-sm ml-2'%>
-          <%= link_to '未完了', tasks_path, class: 'btn btn-primary btn-sm ml-1'%><br>
-      </div>
-    
     <div class="container flex-column align-items-center">
       <% @tasks.each do |task| %>
       <tr id="task-#{task.id}">
