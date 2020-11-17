@@ -1,4 +1,3 @@
-ActiveSupport::Deprecation.silenced = true if Rails.version == '6.0.2'
 
 require_relative 'boot'
 require "date"
