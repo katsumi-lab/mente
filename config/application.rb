@@ -6,7 +6,6 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-config.action_dispatch.default_headers['Referrer-Policy'] = 'no-referrer-when-downgrade'
 
 module Mente
   class Application < Rails::Application
@@ -14,6 +13,8 @@ module Mente
     config.load_defaults 6.0
     config.time_zone = 'Asia/Tokyo'
     config.i18n.default_locale = :ja
+    config.action_dispatch.default_headers['Referrer-Policy'] = 'no-referrer-when-downgrade'
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
