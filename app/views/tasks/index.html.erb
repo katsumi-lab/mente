@@ -19,9 +19,7 @@
           </div>
         <%end%>
       <% else %>
-        <h2 class="text-center font-weight-bold"><%= "ゲストユーザー様" %> </h2>
-        <br>
-        <p class="lead text-center"><%="本日は貴重なお時間を頂き誠にありがとうございます。"%></p><br>
+        <p class="lead text-center"><%= link_to 'ログインはこちらから', new_user_session_path, class: "login nav-link active" %></p><br>
       <% end %>
 
     <div class="row d-flex justify-content-center">
