@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
   resources :tasks
+  resources :users, only: :show
 
   root to: 'tasks#index'
   get 'search', to: 'tasks#search'

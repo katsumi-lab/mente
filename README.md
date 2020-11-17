@@ -71,9 +71,7 @@ git clone https://myhome-mente.herokuapp.com/
 | item               | string  | null: false                    |
 | user_id            | integer | null: false, foreign_key: true |
 | mentenance         | string  | null: false                    |
-| description        | text    |                                |
 | deadline           | date    | null: false                    |
-| completed          | integer | null: false                    |
 
 ### Association
 - belongs_to :user
