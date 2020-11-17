@@ -59,7 +59,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:floor, :room, :item, :mentenance,:description, :completed, :deadline).merge(user_id: current_user.id)
+    params.require(:task).permit(:floor, :room, :item, :mentenance, :deadline).merge(user_id: current_user.id)
   end
   
   def move_to_index
