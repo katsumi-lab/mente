@@ -34,7 +34,7 @@ class TasksController < ApplicationController
       # TaskMailer.creation_email(@task).deliver_later(wait_until: @deadline.noon)
       TaskMailer.creation_email(@task).deliver_now
       # MagazineJob.set(wait_until: @deadline.noon).perform_later
-      redirect_to @task, notice: "「#{@task.floor}の#{@task.room}の#{@task.item}」を登録しました。"
+      redirect_to @task, notice: "「#{@task.floor_id}の#{@task.room_id}の#{@task.item_id}」を登録しました。"
     else
       render :new
     end
@@ -46,7 +46,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.update(task_params)
-    redirect_to @task, notice:"「#{@task.floor}の#{@task.room}の#{@task.item}」を更新しました。"
+    redirect_to @task, notice:"「#{@task.floor_id}の#{@task.room_id}の#{@task.item_id}」を更新しました。"
   end
 
   def destroy
