@@ -34,30 +34,31 @@
       <h3 class="font-weight-bold">お手入れタスク一覧</h3>
       </div>
 
-    <div class="container flex-column align-items-center">
-      <% @tasks.each do |task| %>
-      <tr id="task-#{task.id}">
-      <div class="card text-center" data="<%= task.id %>">
-        <div class="card-header">
-          <td><%=task.floor_id%></td>
-          <td><%= task.room_id%></td>
-        </div>
+    <% if user_signed_in? %>
+      <div class="container flex-column align-items-center">
+        <% @tasks.each do |task| %>
+          <tr id="task-#{task.id}">
+          <div class="card text-center" data="<%= task.id %>">
+            <div class="card-header">
+              <td><%=task.floor_id%></td>
+              <td><%= task.room_id%></td>
+            </div>
 
-        <div class="card-body">
-          <td><h5 class="card-title"><%=task.item_id%></h5></td>
-          <td><p class=><%=task.mentenance_id%></p></td>
-          <td>
-            <%= link_to '詳細画面へ', task_path(task), class:"btn btn-info btn-sm" %><br><br>
-          </td>
-        </div>
-        
-        <div class="card-footer font-weight-bold">
-          <%=deadline_count(task)%>
-        </div>
-      </div>
-      <br>
-      </tr>
-
+            <div class="card-body">
+              <td><h5 class="card-title"><%=task.item_id%></h5></td>
+              <td><p class=><%=task.mentenance_id%></p></td>
+              <td>
+                <%= link_to '詳細画面へ', task_path(task), class:"btn btn-info btn-sm" %><br><br>
+              </td>
+            </div>
+            
+            <div class="card-footer font-weight-bold">
+              <%=deadline_count(task)%>
+            </div>
+          </div>
+          <br>
+          </tr>
+        <% end %>
       <% end %>
     </div>
     
