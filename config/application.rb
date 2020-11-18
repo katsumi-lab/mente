@@ -1,4 +1,3 @@
-
 require_relative 'boot'
 require "date"
 require 'rails/all'
