@@ -63,8 +63,8 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   # mail = ENV['SENDGRID_USERNAME']
   # pass = ENV['SENDGRID_PASSWORD']
-  mail = ENV['MAIL']
-  pass = ENV['GOOGLE_APP_PASSWORD']
+  # mail = ENV['MAIL']
+  # pass = ENV['GOOGLE_APP_PASSWORD']
   
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
@@ -75,8 +75,8 @@ Rails.application.configure do
     :port => '587',
     :domain => 'gmail.com',
     :authentication => 'plain',
-    :user_name => mail,
-    :password => pass
+    :user_name => '85.miyahara.katsumi@gmail.com',
+    :password => 'bilaewqcotdsbfvw'
     }
 
   # Ignore bad email addresses and do not raise email delivery errors.
