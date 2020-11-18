@@ -4,16 +4,19 @@
 mente
 
 ## アプリケーション概要 : 
-戸建て住宅のお手入れ情報をタスクとして登録し、登録した情報が週1回メールマガジンとしてEmailが送信される。
+戸建て住宅のお手入れ情報をタスクとして登録し、お手入れ目安の日にEmailが送信される。
 
 ## URL : 
 https://myhome-mente.herokuapp.com/
 
 ## テスト用アカウント : 
-デプロイ済みのURLを記述しましょう。デプロイが済んでいない場合は、デプロイ次第記述しましょう。
+お名前　　　：宮原　勝己
+お名前カナ　：ミヤハラ　カツミ
+Eメール　：miyaharakatsumi3@gmail.com
+パスワード　：miyaharakatsumi3
 
 ## 利用方法
-ユーザー登録を行い、住宅の各部屋・各項目のお手入れ・期日をプルダウンで選択するとタスクとして管理でき週に一度メールが配信される
+ユーザー登録を行い、住宅の各部屋・各項目のお手入れ・期日をプルダウンで選択するとタスクとして管理できお手入れの目安の日にメールが配信される
 
 ## 目指した課題解決
  - 適切なお手入れ時期を見逃してしまう
@@ -26,15 +29,16 @@ https://myhome-mente.herokuapp.com/
 
 ## 実装した機能についてのGIFと説明
  - お手入れのタスクを登録
- [![Image from Gyazo](https://i.gyazo.com/1f8bc80d8fd243d2e2059f8bdbbde710.gif)](https://gyazo.com/1f8bc80d8fd243d2e2059f8bdbbde710)
- [![Image from Gyazo](https://i.gyazo.com/83160bdf4ebcbd47d4970c9eb3d80996.png)](https://gyazo.com/83160bdf4ebcbd47d4970c9eb3d80996)
+ [![Image from Gyazo](https://i.gyazo.com/38e1521466aa8889178224e8180b01df.gif)](https://gyazo.com/38e1521466aa8889178224e8180b01df)
+ [![Image from Gyazo](https://i.gyazo.com/9c4ab05db3b467228920e5d573a4ea15.gif)](https://gyazo.com/9c4ab05db3b467228920e5d573a4ea15)
+
  - ユーザー情報を管理
- [![Image from Gyazo](https://i.gyazo.com/bcc088426a6c5126d2947585e46a4f27.gif)](https://gyazo.com/bcc088426a6c5126d2947585e46a4f27)
+ [![Image from Gyazo](https://i.gyazo.com/7af7ccc8ec1d5438dfa9fbe9b193881e.gif)](https://gyazo.com/7af7ccc8ec1d5438dfa9fbe9b193881e)
+ 
  - Emailを受信
  [![Image from Gyazo](https://i.gyazo.com/26f18ba2130d37bbe1cc279518260c72.png)](https://gyazo.com/26f18ba2130d37bbe1cc279518260c72)
 
-## 実装予定の機能
- - ユーザー詳細ページ
+## 今後実装予定の機能
  - タスク登録のセレクトボックスをドリルダウン連動機能
  - メールマガジンの配信機能
 
@@ -66,11 +70,11 @@ git clone https://myhome-mente.herokuapp.com/
 ## tasksテーブル
 | Column             | Type    | Options                        |
 | ------------------ | ------- | ------------------------------ |
-| floor              | string  | null: false                    |
-| room               | string  | null: false                    |
-| item               | string  | null: false                    |
+| floor_id           | string  | null: false                    |
+| room_id            | string  | null: false                    |
+| item_id            | string  | null: false                    |
 | user_id            | integer | null: false, foreign_key: true |
-| mentenance         | string  | null: false                    |
+| mentenance_id      | string  | null: false                    |
 | deadline           | date    | null: false                    |
 
 ### Association
