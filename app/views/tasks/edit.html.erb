@@ -9,29 +9,29 @@
   <%= form_with model:@task, url: task_path, local: true do |f| %>
     <div class="form-group">
       <td>
-      <%=f.label :floor, '場所'%>
-      <%= f.collection_select(:floor, FloorCategory.all, :name, :name,{selected: @task.floor}, {class:"form-control", id: "floor_category"}) %>
+      <%=f.label :floor_id, '場所'%>
+      <%= f.collection_select(:floor_id, FloorCategory.all, :name, :name,{selected: @task.floor}, {class:"form-control", id: "floor_category"}) %>
       </td>
     </div>
 
     <div class="form-group">
       <td>
-      <%=f.label :room, '部屋'%>
-      <%= f.collection_select(:room, RoomCategory.all, :name, :name,{selected: @task.room}, {class:"form-control", id: "room_category"}) %>
+      <%=f.label :room_id, '部屋'%>
+      <%= f.collection_select(:room_id, RoomCategory.all, :name, :name,{selected: @task.room}, {class:"form-control", id: "room_category"}) %>
       </td>
     </div>
 
     <div class="form-group">
       <td>
-      <%=f.label :item, '項目'%>
-      <%= f.collection_select(:item, ItemCategory.all, :name, :name,{selected: @task.item}, {class:"form-control", id: "item_category"}) %>
+      <%=f.label :item_id, '項目'%>
+      <%= f.collection_select(:item_id, ItemCategory.all, :name, :name,{selected: @task.item}, {class:"form-control", id: "item_category"}) %>
       </td>
     </div>
 
     <div class="form-group">
       <td>
-      <%=f.label :mentenance, 'お手入れ'%>
-      <%= f.collection_select(:mentenance, MentenanceCategory.all, :name, :id,{selected: @task.mentenance}, {class:"form-control",id: "mentenance_category"}) %>
+      <%=f.label :mentenance_id, 'お手入れ'%>
+      <%= f.collection_select(:mentenance_id, MentenanceCategory.all, :name, :id,{selected: @task.mentenance}, {class:"form-control",id: "mentenance_category"}) %>
       </td>
     </div>
 
