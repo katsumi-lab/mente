@@ -34,7 +34,7 @@
       <h3 class="font-weight-bold">お手入れタスク一覧</h3>
       </div>
 
-    <% if user_signed_in?  && current_user.id == @task %>
+    <% if user_signed_in? == current_user.id %>
       <div class="container flex-column align-items-center">
         <% @tasks.each do |task| %>
           <tr id="task-#{task.id}">
