@@ -12,9 +12,15 @@
           <%= "こんにちは！#{current_user.last_name}さん"%>
           </a>
           <div class="dropdown-menu font-weight-bold" aria-labelledby="navbarDropdownMenuLink">
+            <%# <%= link_to 'マイページ', user_path, class: "ldropdown-item font-weight-bold" %> 
             <a class="dropdown-item font-weight-bold" href="/users/:id">マイページ</a>
+            <%= link_to 'ユーザー情報編集', edit_user_registration_path, class: "dropdown-item font-weight-bold" %>
+            <%= link_to 'ログアウト', destroy_user_session_path, class: "dropdown-item font-weight-bold", method: :delete %>
+            
+            
+            <%# <a class="dropdown-item font-weight-bold" href="/users/:id">マイページ</a>
             <a class="dropdown-item font-weight-bold" href="/users/edit">ユーザー情報編集</a>
-            <a class="dropdown-item font-weight-bold" href="/users/sign_out">ログアウト</a>
+            <a class="dropdown-item font-weight-bold" href="/users/sign_out">ログアウト</a> %>
           </div>
         </li>
       <%else%>

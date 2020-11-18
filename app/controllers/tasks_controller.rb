@@ -5,7 +5,7 @@ class TasksController < ApplicationController
     @tasks = Task.page(params[:page]).per(3)
     @q = Task.ransack(params[:q])
     @results = @q.result(distinct: true)
-    @task = Task.where(user_id: current_user.id)
+    @task = Task.where(user_id: current_user)
   end
 
   def search

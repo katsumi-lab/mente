@@ -9,7 +9,4 @@ class UsersController < ApplicationController
     @count = @tasks.count
   end
 
-  def edit
-  end
-  
 end
