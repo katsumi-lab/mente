@@ -32,8 +32,8 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  mail = ENV['SENDGRID_USERNAME']
-  pass = ENV['SENDGRID_PASSWORD']
+  mail = ENV['MAIL']
+  pass = ENV['GOOGLE_APP_PASSWORD']
   
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true

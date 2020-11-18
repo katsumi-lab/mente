@@ -4,7 +4,7 @@
 
   <div class="container col-8">
     
-      <% if user_signed_in? %>
+      <% if user_signed_in?%>
         <p class="text-center"><%= "#{current_user.last_name_kana} #{current_user.first_name_kana}"%></p>
         <h2 class="text-center font-weight-bold"><%= "#{current_user.last_name} #{current_user.first_name} 様邸"%> </h2>
         <% if @tasks.present? %>
@@ -34,7 +34,7 @@
       <h3 class="font-weight-bold">お手入れタスク一覧</h3>
       </div>
 
-    <% if user_signed_in? %>
+    <% if user_signed_in?  && current_user.id == @task %>
       <div class="container flex-column align-items-center">
         <% @tasks.each do |task| %>
           <tr id="task-#{task.id}">

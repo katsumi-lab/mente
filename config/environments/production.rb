@@ -61,6 +61,21 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "mente_production"
 
   config.action_mailer.perform_caching = false
+  mail = ENV['SENDGRID_USERNAME']
+  pass = ENV['SENDGRID_PASSWORD']
+  
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => 'smtp.gmail.com',
+    :port => '587',
+    :domain => 'gmail.com',
+    :authentication => 'plain',
+    :user_name => mail,
+    :password => pass
+    }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
