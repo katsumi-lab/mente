@@ -44,7 +44,7 @@ Eメール　：miyaharakatsumi3@gmail.com
 
 ## データベース設計
 ER図
-[![Image from Gyazo](https://i.gyazo.com/c3c47beafe7f1c3986f7d7a8631933a4.png)](https://gyazo.com/c3c47beafe7f1c3986f7d7a8631933a4)
+[![Image from Gyazo](https://i.gyazo.com/645aa225abb3d954302a87b38fd8f0d9.png)](https://gyazo.com/645aa225abb3d954302a87b38fd8f0d9)
 
 ## ローカルでの動作方法
  - Gitのcloneコマンドを入力して下さい。
