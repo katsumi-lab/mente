@@ -61,8 +61,10 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "mente_production"
 
   config.action_mailer.perform_caching = false
-  mail = ENV['SENDGRID_USERNAME']
-  pass = ENV['SENDGRID_PASSWORD']
+  # mail = ENV['SENDGRID_USERNAME']
+  # pass = ENV['SENDGRID_PASSWORD']
+  mail = ENV['MAIL']
+  pass = ENV['GOOGLE_APP_PASSWORD']
   
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
