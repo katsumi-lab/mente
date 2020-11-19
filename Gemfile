@@ -69,8 +69,7 @@ gem 'bootstrap4-datetime-picker-rails'
 gem 'active_hash'
 gem 'sidekiq'
 group :production do
-  # gem 'rails_12factor'
-  gem 'unicorn', '5.4.1'
+  gem 'rails_12factor'
 end
 gem 'faker'
 # gem 'mailcatcher'
