@@ -120,4 +120,57 @@ RSpec.describe 'タスク編集', type: :system do
     end
   end
     
+  RSpec.describe 'タスク削除', type: :system do
+
+    context 'タスク削除ができるとき' do
+      it 'ログインしたユーザーは自らが投稿したタスクの削除ができる' do
+        # タスク1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'Email', with: @task1.user.email
+      fill_in 'Password', with: @task1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq root_path
+      # タスク1に「削除」ボタンがあることを確認する
+      expect(
+        all(".more")[1].hover
+      ).to have_link '削除', href: task_path(@task1)
+      # 投稿を削除するとレコードの数が1減ることを確認する
+      expect{
+        all(".more")[1].hover.find_link('削除', href: task_path(@task1)).click
+      }.to change { task.count }.by(-1)
+      # 削除完了画面に遷移したことを確認する
+      expect(current_path).to eq task_path(@task1)
+      # 「削除が完了しました」の文字があることを確認する
+      expect(page).to have_content('削除が完了しました。')
+      # トップページに遷移する
+      visit root_path
+      end
+    end
+    context 'タスク削除ができないとき' do
+      it 'ログインしたユーザーは自分以外が投稿したタスクの削除ができない' do
+        # タスク1を投稿したユーザーでログインする
+        visit new_user_session_path
+        fill_in 'Email', with: @task1.user.email
+        fill_in 'Password', with: @task1.user.password
+        find('input[name="commit"]').click
+        expect(current_path).to eq root_path
+        # タスク2に「削除」ボタンが無いことを確認する
+        expect(
+          all(".more")[0].hover
+        ).to have_no_link '削除', href: task_path(@task2)
+      end
+      it 'ログインしていないとタスクの削除ボタンがない' do
+        # トップページに移動する
+        visit root_path
+        # タスク1に「削除」ボタンが無いことを確認する
+        expect(
+          all(".more")[1].hover
+        ).to have_no_link '削除', href: task_path(@task1)
+        # タスク2に「削除」ボタンが無いことを確認する
+        expect(
+          all(".more")[0].hover
+        ).to have_no_link '削除', href: task_path(@task2)
+      end
+    end
+  end
 end
