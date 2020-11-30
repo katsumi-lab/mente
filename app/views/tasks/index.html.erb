@@ -24,7 +24,7 @@
 
     <div class="row d-flex justify-content-center">
       <div>
-        <a class="btn btn-outline-info btn-lg" href="/tasks/new" role="button">お手入情報の登録はこちらから</a>
+        <a class="btn btn-outline-danger" href="/tasks/new" role="button">お手入情報の登録はこちらから</a>
       </div><br><br><br><br>
     </div>
     
@@ -50,7 +50,7 @@
               <td><h5 class="card-title"><%=task.item_id%></h5></td>
               <td><p class=><%=task.mentenance_id%></p></td>
               <td>
-                <%= link_to '詳細画面へ', task_path(task), class:"btn btn-info btn-sm" %><br><br>
+                <%= link_to '詳細画面へ', task_path(task), class:"btn btn-info btn-danger" %><br><br>
               </td>
             </div>
             

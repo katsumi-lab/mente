@@ -1,14 +1,14 @@
-<div class="app-title navbar navbar-expand-md navbar-light bg-light d-flex">
+<div class="app-title navbar navbar-expand-md navbar-light bg-danger d-flex">
   
   <div class="flex-grow-1">
-    <h1 class ="font-weight-bold text-monospace"><%= link_to 'mente', root_path, class:"text-dark nav-link active"%></h1>
+    <h1 class ="font-weight-bold text-monospace"><%= link_to 'mente', root_path, class:"text-white nav-link active"%></h1>
   </div>
 
   <div>
     <ul>
       <% if user_signed_in?%>
         <li class="collapse navbar-collapse nav-item dropdown d-flex justify-content-end">
-          <a class="nav-link dropdown-toggle text-dark font-weight-bold" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white font-weight-bold" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= "こんにちは！#{current_user.last_name}さん"%>
           </a>
           <div class="dropdown-menu font-weight-bold" aria-labelledby="navbarDropdownMenuLink">
