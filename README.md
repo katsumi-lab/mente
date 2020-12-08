@@ -10,10 +10,10 @@ mente
 https://myhome-mente.herokuapp.com/
 
 ## テスト用アカウント : 
-お名前　　　：宮原　勝己
-お名前カナ　：ミヤハラ　カツミ
-Eメール　：miyaharakatsumi3@gmail.com
-パスワード　：miyaharakatsumi3
+- お名前　　　：宮原　勝己
+- お名前カナ　：ミヤハラ　カツミ
+- Eメール　：miyaharakatsumi3@gmail.com
+- パスワード　：miyaharakatsumi3
 
 ## 利用方法
 ユーザー登録を行い、住宅の各部屋・各項目のお手入れ・期日をプルダウンで選択するとタスクとして管理でき後日お手入れ情報がEmailで送信される。
