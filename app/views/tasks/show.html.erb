@@ -51,8 +51,12 @@
   <%= link_to '削除', @task, method: :delete, data: {confirm: "「#{@task.floor_id}の#{@task.room_id}の#{@task.item_id}」を削除します。よろしいですか？"},class: 'btn btn-danger'%>
   <br>
   <br>
+  <div class="flex-row">
   <div class="d-flex justify-content-center">
-  <%= link_to '続けて登録する場合はこちら', new_task_path, class:'btn btn-outline-secondary '%>
+    <div>このお手入れが終わったら忘れずに次のお手入れタスクを登録しましょう。<br>次の目安時期は詳細を参考してください。</div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div><br><%= link_to '続けて登録する場合はこちら', new_task_path, class:'btn btn-outline-secondary '%></div>
   </div>
   <br>
 
